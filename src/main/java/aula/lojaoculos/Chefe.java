@@ -6,7 +6,7 @@ public class Chefe {
     private CalculadoraVendas calculadoraVendas;
 
     public Chefe() {
-        calculadoraVendas = new CalculadoraVendas();
+        calculadoraVendas = new CalculadoraVendas();  
     }
 
     // Método para consultar o total de vendas em um determinado dia
@@ -14,6 +14,7 @@ public class Chefe {
         return calculadoraVendas.getTotalVendasPorDia(dia);
     }
 
+    
     // Método para acessar a calculadora de vendas e registrar uma venda
     public void registrarVenda(double valorVenda) {
         calculadoraVendas.registrarVenda(valorVenda);
