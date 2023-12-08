@@ -2,11 +2,15 @@ package aula.lojaoculos;
 
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 public class Interface extends JFrame {
+    JTextField userText;
+    JTextField senhaText;
+    JLabel title;
+    
     
     public Interface(){
         setTitle("Loja de Oculos");
@@ -19,9 +23,40 @@ public class Interface extends JFrame {
 
         //Botão login
         setLayout(null);
+        
+        //label
+        JLabel labelUser = new JLabel("Login:");
+        labelUser.setBounds(275,55,90,50);
+        labelUser.setFont(new Font("Arial",Font.PLAIN,16));
+        add(labelUser);
+        
+        JLabel labelSenha = new JLabel("Senha:");
+        labelSenha.setBounds(275,130,90,50);
+        labelSenha.setFont(new Font("Arial",Font.PLAIN,16));
+        add(labelSenha);
+        
+        
+        //caixas de texto
+        userText = new JTextField();
+        userText.setBounds(275,100,250,35);
+        userText.setFont(new Font("Arial", Font.ITALIC, 20));
+        add(userText);
+        
+        senhaText = new JTextField();
+        senhaText.setBounds(275,175,250,35);
+        senhaText.setFont(new Font("Arial", Font.ITALIC, 20));
+        add(senhaText);
+        
+        //titulo
+        title = new JLabel("Loja de Óculos");
+        title.setText("Loja de Óculos");
+        title.setFont(new Font("Arial",Font.BOLD, 30));
+        title.setBounds(275,5,500,50);
+        add(title);
+        
         // cria
         JButton jButton = new JButton("Entrar");
-        jButton.setBounds(275,200,250,70);
+        jButton.setBounds(275,300,250,40);
         jButton.setFont(new Font("Arial", Font.BOLD, 20));
         jButton.setForeground(new Color(237,241,238));
         jButton.setBackground(new Color(9,10,9));
@@ -30,22 +65,25 @@ public class Interface extends JFrame {
         
         //Ação 
         jButton.addActionListener(e->{
-            JOptionPane.showMessageDialog(null, "Bem-vindo a loja");         
+            if("chefe".equals(userText.getText()) || "vendedor".equals(userText.getText()) && "1234".equals(senhaText.getText())){
+                JOptionPane.showMessageDialog(null,"Entrada Autorizada!"); 
+                //NOVA JANELA
+                JFrame novaJanela = new JFrame("Nova Janela");
+                novaJanela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                
+                JLabel textTopo = new JLabel("Bem-Vindo");
+                textTopo.setFont(new Font("Arial",Font.BOLD, 30));
+                 textTopo.setBounds(275,5,500,50);
+                novaJanela.add( textTopo);
+                
+                novaJanela.setSize(800, 500);
+                novaJanela.setLocationRelativeTo(null); // Centraliza a nova janela
+                novaJanela.setVisible(true);
+            }else {
+                JOptionPane.showMessageDialog(null,"Entrada Negada!","Alerta",JOptionPane.ERROR_MESSAGE);  
+            }
         });
-        
-        //caixas de texto
-        JTextField userText = new JTextField("Login");
-        userText.setBounds(275,30,250,50);
-        userText.setFont(new Font("Arial", Font.ITALIC, 20));
-        userText.setText("Login");
-        add(userText);
-        
-        JTextField senhaText = new JTextField("Senha");
-        senhaText.setBounds(275,100,250,50);
-        senhaText.setFont(new Font("Arial", Font.ITALIC, 20));
-        senhaText.setText("Senha");
-        add(senhaText);
-        
+
         setVisible(true);
     }
 
