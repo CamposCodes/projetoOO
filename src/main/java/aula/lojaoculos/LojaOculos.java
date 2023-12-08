@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class LojaOculos {
 
     public static void main(String[] args) {
+        
+        //inicializa telas
+        new Interface();
+        
         Scanner scanner = new Scanner(System.in);
 
         Chefe chefe = new Chefe();
