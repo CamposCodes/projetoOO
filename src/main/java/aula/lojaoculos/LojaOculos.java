@@ -1,5 +1,4 @@
 package aula.lojaoculos;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 

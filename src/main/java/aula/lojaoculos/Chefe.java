@@ -1,5 +1,4 @@
 package aula.lojaoculos;
-
 import java.time.LocalDate;
 
 public class Chefe {

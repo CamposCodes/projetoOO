@@ -1,5 +1,4 @@
 package aula.lojaoculos;
-
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
@@ -21,8 +20,6 @@ public class Interface extends JFrame {
         //abre janela no meio da tela
         setLocationRelativeTo(null);
 
-        //Botão login
-        setLayout(null);
         
         //label
         JLabel labelUser = new JLabel("Login:");
@@ -55,6 +52,8 @@ public class Interface extends JFrame {
         add(title);
         
         // cria
+        //Botão login
+        setLayout(null);
         JButton jButton = new JButton("Entrar");
         jButton.setBounds(275,300,250,40);
         jButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -68,17 +67,49 @@ public class Interface extends JFrame {
             if("chefe".equals(userText.getText()) || "vendedor".equals(userText.getText()) && "1234".equals(senhaText.getText())){
                 JOptionPane.showMessageDialog(null,"Entrada Autorizada!"); 
                 //NOVA JANELA
-                JFrame novaJanela = new JFrame("Nova Janela");
-                novaJanela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                JFrame janelaPrincipal = new JFrame("Sistema");
+                janelaPrincipal.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                setSize(800,500);
+                setResizable(false);
+                setLocationRelativeTo(null);
                 
-                JLabel textTopo = new JLabel("Bem-Vindo");
+                //texto do topo
+                JLabel textTopo = new JLabel("Opções");
                 textTopo.setFont(new Font("Arial",Font.BOLD, 30));
-                 textTopo.setBounds(275,5,500,50);
-                novaJanela.add( textTopo);
+                textTopo.setBounds(350,10,500,50);
+                janelaPrincipal.add( textTopo);
                 
-                novaJanela.setSize(800, 500);
-                novaJanela.setLocationRelativeTo(null); // Centraliza a nova janela
-                novaJanela.setVisible(true);
+                //menu opções
+                janelaPrincipal.setLayout(null);
+                JButton opcao1 = new JButton("Cadastrar cliente");
+                opcao1.setBounds(275,100,275,40);
+                opcao1.setForeground(new Color(237,241,238));
+                opcao1.setBackground(new Color(9,10,9));
+                opcao1.setFont(new Font("Arial", Font.BOLD, 20));
+                //acao opção 1
+                opcao1.addActionListener( op1 -> {new CadastraCliente();});
+                
+                JButton opcao2 = new JButton("Adicionar ao estoque");              
+                opcao2.setBounds(275,150,275,40);
+                opcao2.setForeground(new Color(237,241,238));
+                opcao2.setBackground(new Color(9,10,9));
+                opcao2.setFont(new Font("Arial", Font.BOLD, 20));   
+                opcao2.addActionListener( op2 -> {new AdicionaOculos();});
+                
+                JButton opcao3 = new JButton("Registrar venda");
+                opcao3.setBounds(275,200,275,40);
+                opcao3.setForeground(new Color(237,241,238));
+                opcao3.setBackground(new Color(9,10,9));
+                opcao3.setFont(new Font("Arial", Font.BOLD, 20));
+                opcao3.addActionListener( op3 -> {new RegistraVenda();});
+                
+                janelaPrincipal.add(opcao1);
+                janelaPrincipal.add(opcao2);
+                janelaPrincipal.add(opcao3);
+                
+                janelaPrincipal.setSize(800, 500);
+                janelaPrincipal.setLocationRelativeTo(null); // Centraliza a nova janela
+                janelaPrincipal.setVisible(true);
             }else {
                 JOptionPane.showMessageDialog(null,"Entrada Negada!","Alerta",JOptionPane.ERROR_MESSAGE);  
             }
