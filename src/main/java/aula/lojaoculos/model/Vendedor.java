@@ -1,4 +1,4 @@
-package aula.lojaoculos;
+package aula.lojaoculos.model;
 
 import java.util.ArrayList;
 import java.util.List;

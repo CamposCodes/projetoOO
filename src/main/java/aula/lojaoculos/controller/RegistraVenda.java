@@ -1,4 +1,4 @@
-package aula.lojaoculos;
+package aula.lojaoculos.controller;
 import javax.swing.JFrame;
 
 public class RegistraVenda {

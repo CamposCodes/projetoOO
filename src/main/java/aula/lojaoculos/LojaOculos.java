@@ -3,6 +3,11 @@ package aula.lojaoculos;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import aula.lojaoculos.controller.CalculadoraVendas;
+import aula.lojaoculos.model.Chefe;
+import aula.lojaoculos.model.Cliente;
+import aula.lojaoculos.model.Vendedor;
+
 public class LojaOculos {
 
     public static void main(String[] args) {

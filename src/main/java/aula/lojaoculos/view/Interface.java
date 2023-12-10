@@ -1,7 +1,12 @@
-package aula.lojaoculos;
+package aula.lojaoculos.view;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
+
+import aula.lojaoculos.controller.AdicionaOculos;
+import aula.lojaoculos.controller.CadastraCliente;
+import aula.lojaoculos.controller.RegistraVenda;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

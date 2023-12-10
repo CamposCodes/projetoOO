@@ -1,4 +1,4 @@
-package aula.lojaoculos;
+package aula.lojaoculos.model;
 
 public abstract class Oculos {
     private String marca;

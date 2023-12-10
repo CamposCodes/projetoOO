@@ -1,6 +1,8 @@
-package aula.lojaoculos;
+package aula.lojaoculos.model;
 
 import java.time.LocalDate;
+
+import aula.lojaoculos.controller.CalculadoraVendas;
 
 public class Chefe {
     private CalculadoraVendas calculadoraVendas;

@@ -1,4 +1,4 @@
-package aula.lojaoculos;
+package aula.lojaoculos.controller;
 
 import java.time.LocalDate;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package aula.lojaoculos;
+package aula.lojaoculos.model;
 
 public class OculosEsportivo extends Oculos {
     private String tipoMaterial;
