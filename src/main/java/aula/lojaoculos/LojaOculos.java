@@ -68,7 +68,7 @@ public class LojaOculos {
                         Cliente cliente = new Cliente(cpf, celular, email, nome);
                         vendedor.cadastrarCliente(cliente);
                     } else if (opcaoVendedor == 2) {
-                        System.out.println("Adicionando óculos ao estoque...");1
+                        System.out.println("Adicionando óculos ao estoque...");
                         // Aqui você pode implementar a lógica para adicionar óculos ao estoque
                     } else if (opcaoVendedor == 3) {
                         System.out.println("Digite o valor da venda:");
