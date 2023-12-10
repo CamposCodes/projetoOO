@@ -7,10 +7,16 @@ import aula.lojaoculos.controller.CalculadoraVendas;
 import aula.lojaoculos.model.Chefe;
 import aula.lojaoculos.model.Cliente;
 import aula.lojaoculos.model.Vendedor;
+import aula.lojaoculos.view.Interface;
 
 public class LojaOculos {
 
     public static void main(String[] args) {
+        
+        //inicializa telas
+        new Interface();
+        
+        
         Scanner scanner = new Scanner(System.in);
 
         Chefe chefe = new Chefe();
