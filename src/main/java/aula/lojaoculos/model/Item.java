@@ -4,11 +4,13 @@ public class Item {
     double custoUnitario;
     int quantidade;
     double total;
+    Oculos produto;
 
-    public Item(double custoUnitario, int quantidade, double total) {
+    public Item(double custoUnitario, int quantidade, double total, Oculos produto) {
         this.custoUnitario = custoUnitario;
         this.quantidade = quantidade;
         this.total = total;
+        this.produto = produto;
     }
 
     public double getCustoUnitario() {
