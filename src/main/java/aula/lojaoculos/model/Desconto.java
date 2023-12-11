@@ -4,7 +4,7 @@ public abstract class Desconto {
     protected String codigo;
     protected int numeroDeUsos;
 
-    public Desconto(String codigo, int numeroDeUsos) {
+    public Desconto(String codigo) {
         this.codigo = codigo;
         this.numeroDeUsos = 0;
     }
