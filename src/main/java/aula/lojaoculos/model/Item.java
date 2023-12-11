@@ -2,12 +2,12 @@ package aula.lojaoculos.model;
 
 public class Item {
     double custoUnitario;
-    int quatidade;
+    int quantidade;
     double total;
 
-    public Item(double custoUnitario, int quatidade, double total) {
+    public Item(double custoUnitario, int quantidade, double total) {
         this.custoUnitario = custoUnitario;
-        this.quatidade = quatidade;
+        this.quantidade = quantidade;
         this.total = total;
     }
 
@@ -19,12 +19,12 @@ public class Item {
         this.custoUnitario = custoUnitario;
     }
 
-    public int getQuatidade() {
-        return quatidade;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setQuatidade(int quatidade) {
-        this.quatidade = quatidade;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public double getTotal() {
