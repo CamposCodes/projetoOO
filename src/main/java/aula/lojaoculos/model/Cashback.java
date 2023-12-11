@@ -1,10 +1,10 @@
 package aula.lojaoculos.model;
 
-public abstract class Cashback extends Desconto{
-    float porcentagem;
+public  class Cashback extends Desconto{
+    double porcentagem;
 
-    public Cashback(String codigo, int numeroDeUsos, float porcentagem) {
-        super(codigo, numeroDeUsos);
+    public Cashback(String codigo, double porcentagem) {
+        super(codigo);
         this.porcentagem = porcentagem;
     }
 
