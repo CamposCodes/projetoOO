@@ -1,29 +1,22 @@
 package aula.lojaoculos.model;
 
 public class Cupom extends Desconto {
-    private int valorDoCupom;
+    private double valorDoCupom;
+    private double valorMinimoUso;
 
-    public Cupom(String codigo, int numeroDeUsos, int valorDoCupom, int valorMinimoUso) {
-        super(codigo, numeroDeUsos);
+
+    public Cupom(String codigo, double valorDoCupom, int valorMinimoUso) {
+        super(codigo);
         this.valorDoCupom = valorDoCupom;
+        this.valorMinimoUso = valorMinimoUso;
     }
     @Override
     public double calculaDesconto(double valor) {
-        if ((valor > 300.0) && (valor <=500.0)){
-            this.valorDoCupom = 50;
-            return valorDoCupom;
-        }
-        else if ((valor > 500.0) && (valor < 1000.0)){
-            this.valorDoCupom = 100;
-            return valorDoCupom;
-        }
-        else if (valor > 1000.0){
-            this.valorDoCupom = 150;
-            return valorDoCupom;
-        }
-        else{
-            return 0;
+
+        if(valor < valorMinimoUso){
+            throw new RuntimeException(); //TODO: DESENVOLVER EXCEÇÃO PARA LANÇAR AQUI
         }
 
+        return valor - valorDoCupom;
     }
 }
