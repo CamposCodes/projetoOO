@@ -1,69 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package aula.lojaoculos.model;
 
-/**
- *
- * @author gcamp
- */
-public class Cliente {
-    private String nome;
-    private String cpf;
-    private String celular;
-    private String email;
+import java.util.Date;
 
-    // Construtor que recebe CPF, celular e email
-    public Cliente(String cpf, String celular, String email, String nome) {
-        if (validarCpf(cpf)) {
-            this.cpf = cpf;
-        } else {
-            throw new IllegalArgumentException("CPF inválido!");
-        }
-        this.cpf = cpf;
-        this.celular = celular;
-        this.email = email;
-        this.nome = nome;
-    }
+public class Cliente extends Pessoa{
 
-    // Getters e Setters para os atributos
-    public String getNome(){
-        return nome;
+    int codigo;
+    double creditosNaLoja;
+    public Cliente(String nome, Date dtnasc, String email, String cpf, String telefone) {
+        super(nome, dtnasc, email, cpf, telefone);
     }
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        if (validarCpf(cpf)) {
-            this.cpf = cpf;
-        } else {
-            throw new IllegalArgumentException("CPF inválido!");
-        }
-        
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-     public static boolean validarCpf(String cpf) {
+    public static boolean validarCpf(String cpf) {
         // Removendo caracteres especiais e espaços em branco do CPF
         cpf = cpf.replaceAll("[^0-9]", "");
 
@@ -108,4 +54,5 @@ public class Cliente {
         // Verifica o segundo dígito verificador
         return (digitoVerificador2 == (cpf.charAt(10) - '0'));
     }
+
 }
