@@ -2,24 +2,26 @@ package aula.lojaoculos.model;
 
 import java.util.Date;
 import java.lang.String;
+import java.util.List;
 
 
 public class Venda {
     private double valor;
     private Date dataTransacao;
     private int nPrestracoes;
-    private int identificador;
+    private List<Item> itens;
     private int vendedor;
     private int cliente;
     private String codigoDesconto;
     private double valorDesconto;
     private double creditosCliente;
+    private int codigo;
 
-    public Venda(double valor, Date dataTransacao, int nPrestracoes, int identificador, int vendedor, int cliente, String codigoDesconto, double valorDesconto, double credtiosCliente) {
+    public Venda(double valor, Date dataTransacao, int nPrestracoes, int codigo, int vendedor, int cliente, String codigoDesconto, double valorDesconto, double credtiosCliente) {
         this.valor = valor;
         this.dataTransacao = dataTransacao;
         this.nPrestracoes = nPrestracoes;
-        this.identificador = identificador;
+        this.codigo = codigo;
         this.vendedor = vendedor;
         this.cliente = cliente;
         this.codigoDesconto = codigoDesconto;
@@ -52,11 +54,11 @@ public class Venda {
     }
 
     public int getIdentificador() {
-        return identificador;
+        return codigo;
     }
 
     public void setIdentificador(int identificador) {
-        this.identificador = identificador;
+        this.codigo = identificador;
     }
 
     public int getVendedor() {
