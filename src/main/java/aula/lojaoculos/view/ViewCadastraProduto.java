@@ -29,7 +29,27 @@ public class ViewCadastraProduto extends JFrame {
         JButton oculosGrauButton = createButton("Óculos de Grau", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton oculosEscurosGrauButton = createButton("Óculos Escuros com Grau", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
 
-        // Adiciona um espaço entre cada botão
+        //paginas de cada 
+        oculosEscurosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewOculosEscuros();
+            }
+        });
+        oculosEscurosGrauButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewOculosEscurosGrau();
+            }
+        });
+        oculosGrauButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewOculosGrau();
+            }
+        });
+
+// Adiciona um espaço entre cada botão
         add(Box.createVerticalStrut(buttonPadding));
         add(oculosEscurosButton);
         add(Box.createVerticalStrut(buttonPadding));
