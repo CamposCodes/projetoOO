@@ -69,11 +69,14 @@ public class Interface extends JFrame {
         
         //Ação 
         jButton.addActionListener(e->{
-            if("chefe".equals(userText.getText()) || "vendedor".equals(userText.getText()) && "1234".equals(senhaText.getText())){
+            if("vendedor".equals(userText.getText()) && "123".equals(senhaText.getText())){
                 JOptionPane.showMessageDialog(null,"Entrada Autorizada!"); 
-                //NOVA JANELA
                 new ViewVendedor();
-            }else {
+            }
+            else if("gerente".equals(userText.getText()) && "123".equals(senhaText.getText())){
+                new ViewGerente();  
+            }
+            else {
                 JOptionPane.showMessageDialog(null,"Entrada Negada!","Alerta",JOptionPane.ERROR_MESSAGE);  
             }
         });

@@ -10,44 +10,61 @@ public class ViewVendedor extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setLayout(new FlowLayout(FlowLayout.CENTER, 100, 50)); // Configura o layout para centralizar
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS)); // Configura o layout para centralizar verticalmente
 
-        JButton cadastrarClienteButton = new JButton("Cadastrar Cliente");
-        cadastrarClienteButton.setPreferredSize(new Dimension(200, 40));
-        cadastrarClienteButton.setForeground(Color.WHITE);
-        cadastrarClienteButton.setBackground(Color.BLACK);
-        add(cadastrarClienteButton);
+        // Configuração do espaçamento entre os botões
+        int buttonPadding = 20;
+        int buttonWidth = 200;
+        int buttonHeight = 100;
+        Font buttonFont = new Font("Arial", Font.BOLD, 20);
+        Color foregroundColor = new Color(237, 241, 238);
+        Color backgroundColor = new Color(9, 10, 9);
+
+        JButton cadastrarClienteButton = createButton("Cadastrar Cliente", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+        JButton cadastrarVendaButton = createButton("Cadastrar Venda", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+        JButton sairButton = createButton("Sair", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+
         cadastrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraVenda();
+                new ViewCadastraCliente();
             }
         });
-
-        JButton cadastrarVendaButton = new JButton("Cadastrar Venda");
-        cadastrarVendaButton.setPreferredSize(new Dimension(200, 40));
-        cadastrarVendaButton.setForeground(Color.WHITE);
-        cadastrarVendaButton.setBackground(Color.BLACK);
-        add(cadastrarVendaButton);
         cadastrarVendaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ViewCadastraVenda();
             }
         });
-
-        JButton sairButton = new JButton("Sair");
-        sairButton.setPreferredSize(new Dimension(200, 40));
-        sairButton.setForeground(Color.WHITE);
-        sairButton.setBackground(Color.BLACK);
-        add(sairButton);
-          sairButton.addActionListener(new ActionListener() {
+        sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose(); 
+                dispose();
             }
         });
+        
+        // Adiciona um espaço entre cada botão
+        add(Box.createVerticalStrut(buttonPadding));
+        add(cadastrarClienteButton);
+        add(Box.createVerticalStrut(buttonPadding));
+        add(cadastrarVendaButton);
+        add(Box.createVerticalStrut(buttonPadding));
+        add(sairButton);
+        add(Box.createVerticalStrut(buttonPadding));
+
 
         setVisible(true);
     }
+
+    // Método utilitário para criar os botões
+    private JButton createButton(String text, int width, int height, Font font, Color foregroundColor, Color backgroundColor) {
+        JButton button = new JButton(text);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT); // Alinha o botão ao centro
+        button.setPreferredSize(new Dimension(width, height));
+        button.setFont(font);
+        button.setForeground(foregroundColor);
+        button.setBackground(backgroundColor);
+        return button;
+    }
+
 }
