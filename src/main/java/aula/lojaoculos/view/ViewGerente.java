@@ -29,6 +29,14 @@ public class ViewGerente extends JFrame {
         JButton cadastroFuncionarioButton = createButton("Cadastro de Funcionário", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton sairButton = createButton("Sair", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
 
+        cadastroProdutoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewCadastraProduto();
+            }
+        });
+
+
         // Adiciona um espaço entre cada botão
         add(Box.createVerticalStrut(buttonPadding));
         add(cadastrarClienteButton);
