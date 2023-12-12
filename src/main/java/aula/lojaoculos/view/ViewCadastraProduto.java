@@ -70,7 +70,4 @@ public class ViewCadastraProduto extends JFrame {
         return button;
     }
 
-    public static void main(String[] args) {
-        new ViewCadastraProduto();
-    }
 }

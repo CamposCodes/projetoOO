@@ -6,7 +6,7 @@ public class ViewCadastraVenda extends JFrame {
     JTextField valorText, dataText, quantidadeText, codigoDescontoText, valorDescontoText, creditosUtilizadosText;
     JTable tabelaItens;
     JComboBox<String> listaProdutos, listaClientes;
-    JButton cadastrarItemButton, criarNovoClienteButton, calcularButton, confirmarVendaButton;
+    JButton selecionaItemButton, cadastrarItemButton, criarNovoClienteButton, calcularButton, confirmarVendaButton;
     JLabel labelValor;
 
     public ViewCadastraVenda() {
@@ -72,6 +72,15 @@ public class ViewCadastraVenda extends JFrame {
             }
         });
         add(cadastrarItemButton);
+        selecionaItemButton = new JButton("Selecionar produto");
+        selecionaItemButton.setBounds(50, 400, 150, 30);
+        selecionaItemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              //
+            }
+        });
+        add(selecionaItemButton);
 
         criarNovoClienteButton = new JButton("Novo Cliente");
         criarNovoClienteButton.setBounds(250, 400, 150, 30);
