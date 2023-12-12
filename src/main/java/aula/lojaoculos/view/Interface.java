@@ -72,49 +72,7 @@ public class Interface extends JFrame {
             if("chefe".equals(userText.getText()) || "vendedor".equals(userText.getText()) && "1234".equals(senhaText.getText())){
                 JOptionPane.showMessageDialog(null,"Entrada Autorizada!"); 
                 //NOVA JANELA
-                JFrame janelaPrincipal = new JFrame("Sistema");
-                janelaPrincipal.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                setSize(800,500);
-                setResizable(false);
-                setLocationRelativeTo(null);
-                
-                //texto do topo
-                JLabel textTopo = new JLabel("Opções");
-                textTopo.setFont(new Font("Arial",Font.BOLD, 30));
-                textTopo.setBounds(350,10,500,50);
-                janelaPrincipal.add( textTopo);
-                
-                //menu opções
-                janelaPrincipal.setLayout(null);
-                JButton opcao1 = new JButton("Cadastrar cliente");
-                opcao1.setBounds(275,100,275,40);
-                opcao1.setForeground(new Color(237,241,238));
-                opcao1.setBackground(new Color(9,10,9));
-                opcao1.setFont(new Font("Arial", Font.BOLD, 20));
-                //acao opção 1
-                opcao1.addActionListener( op1 -> {new CadastraCliente();});
-                
-                JButton opcao2 = new JButton("Adicionar ao estoque");              
-                opcao2.setBounds(275,150,275,40);
-                opcao2.setForeground(new Color(237,241,238));
-                opcao2.setBackground(new Color(9,10,9));
-                opcao2.setFont(new Font("Arial", Font.BOLD, 20));   
-                opcao2.addActionListener( op2 -> {new AdicionaOculos();});
-                
-                JButton opcao3 = new JButton("Registrar venda");
-                opcao3.setBounds(275,200,275,40);
-                opcao3.setForeground(new Color(237,241,238));
-                opcao3.setBackground(new Color(9,10,9));
-                opcao3.setFont(new Font("Arial", Font.BOLD, 20));
-                opcao3.addActionListener( op3 -> {new ViewCadastraVenda();});
-                
-                janelaPrincipal.add(opcao1);
-                janelaPrincipal.add(opcao2);
-                janelaPrincipal.add(opcao3);
-                
-                janelaPrincipal.setSize(800, 500);
-                janelaPrincipal.setLocationRelativeTo(null); // Centraliza a nova janela
-                janelaPrincipal.setVisible(true);
+                new ViewVendedor();
             }else {
                 JOptionPane.showMessageDialog(null,"Entrada Negada!","Alerta",JOptionPane.ERROR_MESSAGE);  
             }
