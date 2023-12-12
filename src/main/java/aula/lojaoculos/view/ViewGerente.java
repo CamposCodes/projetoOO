@@ -35,6 +35,13 @@ public class ViewGerente extends JFrame {
                 new ViewCadastraProduto();
             }
         });
+        cadastroFuncionarioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewCadastraVendedor();
+            }
+        });
+        
 
 
         // Adiciona um espaço entre cada botão
