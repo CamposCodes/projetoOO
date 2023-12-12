@@ -106,7 +106,7 @@ public class Interface extends JFrame {
                 opcao3.setForeground(new Color(237,241,238));
                 opcao3.setBackground(new Color(9,10,9));
                 opcao3.setFont(new Font("Arial", Font.BOLD, 20));
-                opcao3.addActionListener( op3 -> {new RegistraVenda();});
+                opcao3.addActionListener( op3 -> {new ViewCadastraVenda();});
                 
                 janelaPrincipal.add(opcao1);
                 janelaPrincipal.add(opcao2);
