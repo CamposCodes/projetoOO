@@ -5,8 +5,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DadosDeCodigosPersistence {
 
@@ -24,7 +22,7 @@ public class DadosDeCodigosPersistence {
         Arquivo.salva(PATH, json);
     }
 
-    public DadosDeCodigos findAll() {
+    public DadosDeCodigos get() {
         Gson gson = new Gson();
 
         String json = Arquivo.le(PATH);
@@ -32,8 +30,7 @@ public class DadosDeCodigosPersistence {
         DadosDeCodigos dados = new DadosDeCodigos();
         if(!json.trim().equals("")) {
 
-            Type tipoDado = new TypeToken<DadosDeCodigos>() {
-            }.getType();
+            Type tipoDado = new TypeToken<DadosDeCodigos>() {}.getType();
             dados = gson.fromJson(json, tipoDado);
 
             if (dados == null)

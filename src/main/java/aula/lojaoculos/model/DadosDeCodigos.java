@@ -2,36 +2,45 @@ package aula.lojaoculos.model;
 
 public class DadosDeCodigos {
 
-    private static int codigoCliente;
+    private int codigoCliente;
 
-    private static int codigoFuncionario;
+    private int codigoFuncionario;
 
-    private static int codigoOculos;
+    private int codigoOculos;
+
+    private int codigoVenda;
 
     public DadosDeCodigos() {
-        codigoCliente = 0;
-        codigoFuncionario = 0;
-        codigoOculos = 0;
+        this.codigoCliente = 0;
+        this.codigoFuncionario = 0;
+        this.codigoOculos = 0;
+        this.codigoVenda = 0;
     }
 
     public int getCodigoCliente() {
         return codigoCliente;
     }
 
-    public void setCodigoCliente(int codigoCliente) {
-        codigoCliente = codigoCliente;
-    }
+    public void setCodigoCliente(int codigoCliente) { this.codigoCliente = codigoCliente; }
 
     public int getCodigoFuncionario() {
         return codigoFuncionario;
     }
 
     public void setCodigoFuncionario(int codigoFuncionario) {
-        codigoFuncionario = codigoFuncionario;
+        this.codigoFuncionario = codigoFuncionario;
     }
 
     public int getCodigoOculos() {
         return codigoOculos;
+    }
+
+    public int getCodigoVenda() {
+        return codigoVenda;
+    }
+
+    public void setCodigoVenda(int codigoVenda) {
+        this.codigoVenda = codigoVenda;
     }
 
     public void setCodigoOculos(int codigoOculos) {
