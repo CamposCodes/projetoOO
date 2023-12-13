@@ -1,5 +1,7 @@
 package aula.lojaoculos.model;
 
+import aula.lojaoculos.persistence.DadosDeCodigosPersistence;
+
 public abstract class Oculos {
     protected String modelo;
     protected String marca;
@@ -10,5 +12,10 @@ public abstract class Oculos {
         this.modelo = modelo;
         this.marca = marca;
         this.preco = preco;
+        DadosDeCodigosPersistence persistence = new DadosDeCodigosPersistence();
+        DadosDeCodigos codigos = persistence.get();
+        codigo = codigos.getCodigoOculos();
+        codigos.setCodigoOculos(codigo + 1);
+        persistence.save(codigos);
     }
 }

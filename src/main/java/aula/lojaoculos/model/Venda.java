@@ -1,5 +1,7 @@
 package aula.lojaoculos.model;
 
+import aula.lojaoculos.persistence.DadosDeCodigosPersistence;
+
 import java.util.Date;
 import java.lang.String;
 import java.util.List;
@@ -27,6 +29,11 @@ public class Venda {
         this.codigoDesconto = codigoDesconto;
         this.valorDesconto = valorDesconto;
         this.creditosCliente = credtiosCliente;
+        DadosDeCodigosPersistence persistence = new DadosDeCodigosPersistence();
+        DadosDeCodigos codigos = persistence.get();
+        codigo = codigos.getCodigoFuncionario();
+        codigos.setCodigoFuncionario(codigo + 1);
+        persistence.save(codigos);
     }
 
     public double getValor() {
