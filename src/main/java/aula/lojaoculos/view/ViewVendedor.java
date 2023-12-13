@@ -27,7 +27,7 @@ public class ViewVendedor extends JFrame {
         cadastrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraCliente();
+                new ViewCadastraCliente().desenha();
             }
         });
         cadastrarVendaButton.addActionListener(new ActionListener() {
@@ -54,6 +54,8 @@ public class ViewVendedor extends JFrame {
 
 
         setVisible(true);
+
+
     }
 
     // Método utilitário para criar os botões
