@@ -31,12 +31,40 @@ public class ViewGerente extends JFrame {
         JButton cadastroFuncionarioButton = createButton("Cadastro de Funcionário", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton sairButton = createButton("Sair", buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
 
+        cadastrarClienteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewCadastraCliente tela = new ViewCadastraCliente();
+//                tela.addWindowListener(new JanelaFuncionario(tela));
+                tela.desenha();
+            }
+        });
+
+        cadastrarVendaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewCadastraVenda tela = new ViewCadastraVenda();
+//                tela.addWindowListener(new JanelaFuncionario(tela));
+//                tela.desenha();
+            }
+        });
+
+//        cadastroDescontoButton.addActionListener(new ActionListener() { //TODO: CRIAR VIEW DE CADASTRO DE DESCONTO
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                ViewCadastraFuncionario tela = new ViewCadastraFuncionario();
+//                tela.addWindowListener(new JanelaFuncionario(tela));
+//                tela.desenha();
+//            }
+//        });
+
         cadastroProdutoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraProduto();
+                new ViewCadastraProduto(); // TODO: CRIAR SUBJANELAS PARA OS PRODUTOS
             }
         });
+
         cadastroFuncionarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
