@@ -1,5 +1,7 @@
 package aula.lojaoculos.view;
 import aula.lojaoculos.controller.cliente.JanelaCliente;
+import aula.lojaoculos.exceptions.CampoVazioException;
+import aula.lojaoculos.exceptions.NaoEncontradoException;
 import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.FuncionarioPersistence;
 
@@ -67,16 +69,24 @@ public class Interface extends JFrame {
         
         //Ação 
         jButton.addActionListener(e->{
-            String cargo = obtemCargo(userText.getText(), senhaField.getText());
+            try {
+                if(userText.getText().isBlank() || senhaField.getText().isBlank()){
+                    throw new CampoVazioException("Ambos os campos devem ser preenchidos!");
+                }
 
-            if (cargo.equals("Gerente") || (userText.getText().equals("gerente") && senhaField.getText().equals("123"))){
-                JOptionPane.showMessageDialog(null,"Entrada Autorizada!");
-                new ViewGerente();
-            } else if(cargo.equals("Vendedor")){
-                JOptionPane.showMessageDialog(null,"Entrada Autorizada!");
-                new ViewVendedor();
-            } else {
-                throw new RuntimeException(); // TODO: Tratar essa exceção
+                String cargo = obtemCargo(userText.getText(), senhaField.getText());
+
+                if (cargo.equals("Gerente") || (userText.getText().equals("gerente") && senhaField.getText().equals("123"))){
+                    JOptionPane.showMessageDialog(null,"Entrada Autorizada!");
+                    new ViewGerente();
+                } else if(cargo.equals("Vendedor")){
+                    JOptionPane.showMessageDialog(null,"Entrada Autorizada!");
+                    new ViewVendedor();
+                } else {
+                        throw new NaoEncontradoException("Usuário não encontrado"); // TODO: Tratar essa exceção
+                }
+            } catch (Exception erro) {
+                JOptionPane.showMessageDialog(null, erro.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
             }
         });
 
