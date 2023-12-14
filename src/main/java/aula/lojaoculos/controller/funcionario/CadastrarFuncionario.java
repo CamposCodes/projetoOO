@@ -1,0 +1,28 @@
+package aula.lojaoculos.controller.funcionario;
+
+import aula.lojaoculos.view.ViewCadastraFuncionario;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CadastrarFuncionario implements ActionListener {
+
+    private final ViewCadastraFuncionario tela;
+
+    public CadastrarFuncionario(ViewCadastraFuncionario tela) {
+        this.tela = tela;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (tela.validarCampos()) {
+            tela.cadastraFuncionario();
+            JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
+            tela.dispose(); // Fecha a janela após o cadastro
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha os campos corretamente!",
+                    "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
