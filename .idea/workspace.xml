@@ -4,8 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd3b121e-b127-4418-af82-01f43d3d4f21" name="Changes" comment="Implementação classes principais">
+    <list default="true" id="bd3b121e-b127-4418-af82-01f43d3d4f21" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/CampoVazioException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/CpfException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/DataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/EmailException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/JaCadastradoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/NomeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/TelefoneException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/cliente/CadastrarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/cliente/CadastrarCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/funcionario/CadastrarFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/funcionario/CadastrarFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewCadastraCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewCadastraCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewCadastraFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewCadastraFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewGerente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Pessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Pessoa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/Interface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/Interface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +71,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Cupom.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -69,6 +91,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;LucasMartins&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -98,6 +121,8 @@
       <workItem from="1702074743359" duration="4288000" />
       <workItem from="1702251869415" duration="7227000" />
       <workItem from="1702298901793" duration="869000" />
+      <workItem from="1702476157616" duration="890000" />
+      <workItem from="1702478189430" duration="18462000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;pequena correção nos arquivos iniciais&quot;">
       <option name="closed" value="true" />
@@ -115,7 +140,70 @@
       <option name="project" value="LOCAL" />
       <updated>1702262738675</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented creation of clients with unique codes">
+      <created>1702482749007</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702482749007</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added unique code creation to &quot;Funcionario&quot;, &quot;Venda&quot; and &quot;Oculos&quot;">
+      <created>1702482876031</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702482876031</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactor code to implement new functions">
+      <created>1702483144279</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702483144279</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added getters">
+      <created>1702514905198</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702514905198</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Created strucure to add new &quot;Funcionario&quot; objects through the GUI">
+      <created>1702515000152</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702515000152</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated gitignore to ignore the target folder">
+      <created>1702515065915</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702515065915</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added login logic">
+      <created>1702515087822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702515087822</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Cleaned up main function">
+      <created>1702515108120</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702515108120</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update">
+      <created>1702515258259</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702515258259</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +212,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;pequena correção nos arquivos iniciais&quot;" />
     <MESSAGE value="Implementação classes principais" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementação classes principais" />
+    <MESSAGE value="Implemented creation of clients with unique codes" />
+    <MESSAGE value="Added unique code creation to &quot;Funcionario&quot;, &quot;Venda&quot; and &quot;Oculos&quot;" />
+    <MESSAGE value="Refactor code to implement new functions" />
+    <MESSAGE value="Added getters" />
+    <MESSAGE value="Created strucure to add new &quot;Funcionario&quot; objects through the GUI" />
+    <MESSAGE value="Updated gitignore to ignore the target folder" />
+    <MESSAGE value="Added login logic" />
+    <MESSAGE value="Cleaned up main function" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
