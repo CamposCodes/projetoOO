@@ -6,7 +6,7 @@ public class ViewOculosEscurosGrau extends JFrame {
 
     public ViewOculosEscurosGrau() {
         setTitle("Cadastro de Óculos Escuros com Grau");
-        setSize(600, 400); // Aumentando a resolução para 600x400 pixels
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);

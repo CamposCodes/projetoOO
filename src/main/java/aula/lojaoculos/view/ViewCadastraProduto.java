@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class ViewCadastraProduto extends JFrame {
     public ViewCadastraProduto() {
         setTitle("Cadastro de Produto");
-        setSize(800, 500);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);

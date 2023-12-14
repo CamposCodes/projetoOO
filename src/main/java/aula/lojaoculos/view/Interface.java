@@ -19,7 +19,7 @@ public class Interface extends JFrame {
     
     public Interface(){
         setTitle("Loja de Oculos");
-        setSize(800,500);
+        setSize(800,600);
         //finaliza o programa ao fechar
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);

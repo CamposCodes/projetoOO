@@ -5,7 +5,7 @@ import java.awt.*;
 public class ViewOculosEscuros extends JFrame {
     public ViewOculosEscuros() {
         setTitle("Cadastro de Óculos Escuros");
-        setSize(600, 400); // Aumentando a resolução para 600x400 pixels
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);

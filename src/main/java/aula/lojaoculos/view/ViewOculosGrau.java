@@ -5,9 +5,11 @@ import java.awt.*;
 public class ViewOculosGrau extends JFrame {
 
     public ViewOculosGrau() {
+        
         setTitle("Cadastro de Óculos de Grau");
-        setSize(600, 400);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLayout(null);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2, 10, 10));
@@ -16,6 +18,7 @@ public class ViewOculosGrau extends JFrame {
 
         JLabel modeloLabel = createLabel("Modelo:", labelFont);
         JTextField modeloTextField = createTextField();
+        modeloLabel.setBounds(1,1,50,20);
 
         JLabel marcaLabel = createLabel("Marca:", labelFont);
         JTextField marcaTextField = createTextField();
@@ -33,7 +36,7 @@ public class ViewOculosGrau extends JFrame {
         JTextField tipoLenteTextField = createTextField();
         
             
-        JButton registrarButton = createButton("Registrar", 150, 40, labelFont, Color.WHITE, Color.BLACK);
+        JButton registrarButton = createButton("Registrar", 100, 80);
 
         add(modeloLabel);
         add(modeloTextField);
@@ -61,17 +64,16 @@ public class ViewOculosGrau extends JFrame {
     private JTextField createTextField() {
         JTextField textField = new JTextField();
         textField.setFont(new Font("Arial", Font.PLAIN, 14));
+        
         return textField;
     }
     
-    private JButton createButton(String text, int width, int height, Font font, Color foregroundColor, Color backgroundColor) {
+    private JButton createButton(String text, int width, int height ){
         JButton button = new JButton(text);
-        button.setPreferredSize(new Dimension(width, height));
-        button.setFont(font);
-        button.setForeground(foregroundColor);
-        button.setBackground(backgroundColor);
+        button.setFont(new Font("Arial", Font.BOLD, 20));
+        button.setForeground(new Color(237,241,238));
+        button.setBackground(new Color(9,10,9));
+        button.setPreferredSize(new Dimension(width,height));
         return button;
     }
-
-
 }

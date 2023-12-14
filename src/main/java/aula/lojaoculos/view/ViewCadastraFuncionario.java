@@ -31,7 +31,7 @@ public class ViewCadastraFuncionario extends JFrame {
     public ViewCadastraFuncionario() { }
     public void desenha(){
         setTitle("Cadastro de Vendedor");
-        setSize(600, 400);
+        setSize(800, 500);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
