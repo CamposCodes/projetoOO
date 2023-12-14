@@ -2,6 +2,7 @@
 package aula.lojaoculos.view;
 
 import aula.lojaoculos.controller.funcionario.CadastrarFuncionario;
+import aula.lojaoculos.exceptions.*;
 import aula.lojaoculos.model.Cliente;
 import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.FuncionarioPersistence;
@@ -100,30 +101,76 @@ public class ViewCadastraFuncionario extends JFrame {
         setVisible(true);
     }
 
-    public boolean validarCampos() {
+    public boolean validarCampos() throws Exception {
         String nome = nomeTextField.getText();
         String dataNascimento = dataNascimentoTextField.getText();
         String email = emailTextField.getText();
         String cpf = cpfTextField.getText();
         String telefone = telefoneTextField.getText();
+        String login = loginTextField.getText();
+        String senha = senhaPasswordField.getText();
 
         // Expressões regulares para validação
         String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        String regexTelefone = "^\\d{10,11}$";
+        String regexNome = "^[A-Za-z ]+$";
+        String regexTelefone = "^\\(\\d{2}\\)\\d{4,5}-\\d{4}$";
         String regexDataNascimento = "^\\d{2}/\\d{2}/\\d{4}$"; // Formato dd/MM/yyyy
         Pattern patternEmail = Pattern.compile(regexEmail);
+        Pattern patternNome = Pattern.compile(regexNome);
         Pattern patternTelefone = Pattern.compile(regexTelefone);
         Pattern patternDataNascimento = Pattern.compile(regexDataNascimento);
 
         // Validando os campos com as expressões regulares
         Matcher matcherEmail = patternEmail.matcher(email);
+        Matcher matcherNome = patternNome.matcher(nome);
         Matcher matcherTelefone = patternTelefone.matcher(telefone);
         Matcher matcherDataNascimento = patternDataNascimento.matcher(dataNascimento);
 
-        return !nome.isEmpty() && matcherEmail.matches() && matcherTelefone.matches() && matcherDataNascimento.matches() && validarCpf(cpf);
+        if(nome.isBlank()){
+            throw new CampoVazioException("O nome é obrigatório!");
+        }
+
+        if(!matcherEmail.matches()){
+            throw new EmailException("O email deve estar no formato: exemplo@exemplo.com");
+        }
+
+        if(!matcherNome.matches()){
+            throw new NomeException("O nome deve conter somente letras!");
+        }
+
+        if(!matcherTelefone.matches()){
+            throw new TelefoneException("O telefone deve estar no formato (dd)ddddd-dddd");
+        }
+
+        if(!matcherDataNascimento.matches()){
+            throw new DataException("A data deve estar no formato: dd/mm/aaaa");
+        }
+
+        if(!validarCpf(cpf)){
+            throw new CpfException("CPF inválido!");
+        }
+
+        if(login.isBlank()){
+            throw new CampoVazioException("O campo LOGIN é obrigatório");
+        }
+
+        if(senha.isBlank()){
+            throw new CampoVazioException("O campo SENHA é obrigatório");
+        }
+
+        return true;
     }
 
-    public static boolean validarCpf(String cpf) {
+    public static boolean validarCpf(String cpf) throws CpfException {
+
+        String regexCpf = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$";
+        Pattern patternCpf = Pattern.compile(regexCpf);
+        Matcher macherCpf = patternCpf.matcher(cpf);
+
+        if(!macherCpf.matches()){
+            throw new CpfException("O CPF deve estar no formato: ddd.ddd.ddd-dd");
+        }
+
         // Removendo caracteres especiais e espaços em branco do CPF
         cpf = cpf.replaceAll("[^0-9]", "");
 
@@ -169,29 +216,51 @@ public class ViewCadastraFuncionario extends JFrame {
         return (digitoVerificador2 == (cpf.charAt(10) - '0'));
     }
 
-    public void cadastraFuncionario() {
-        String nome = nomeTextField.getText();
-        String dataDeNascimento = dataNascimentoTextField.getText();
-        String email = emailTextField.getText();
-        String cpf = cpfTextField.getText();
-        String telefone = telefoneTextField.getText();
-        String cargo = (String) cargoComboBox.getSelectedItem();
-        String login = loginTextField.getText();
-        String senha = senhaPasswordField.getText();
+    public boolean cadastraFuncionario() {
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
-        Date data = null;
         try {
-            data = formato.parse(dataDeNascimento);
+            if(validarCampos()){
+                String nome = nomeTextField.getText();
+                String dataDeNascimento = dataNascimentoTextField.getText();
+                String email = emailTextField.getText();
+                String cpf = cpfTextField.getText();
+                String telefone = telefoneTextField.getText();
+                String cargo = (String) cargoComboBox.getSelectedItem();
+                String login = loginTextField.getText();
+                String senha = senhaPasswordField.getText();
 
-        } catch (ParseException e) {
-            e.printStackTrace();
+                for (Funcionario funcionario:funcionarios) {
+                    if(login.equals(funcionario.getLogin())){
+                        throw new JaCadastradoException("Esse login já está em uso!");
+                    }
+                }
+
+                for (Funcionario funcionario:funcionarios) {
+                    if(cpf.equals(funcionario.getCpf())){
+                        throw new JaCadastradoException("Já existe um funcionário com esse CPF!");
+                    }
+                }
+
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+                Date data = null;
+                try {
+                    data = formato.parse(dataDeNascimento);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                funcionarios.add(new Funcionario(nome, data, email, cpf, telefone, cargo, login, senha));
+                funcionarioPersistence.save(this.funcionarios);
+
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
         }
 
-        funcionarios.add(new Funcionario(nome, data, email, cpf, telefone, cargo, login, senha));
-        funcionarioPersistence.save(this.funcionarios);
-
+        return false;
     }
 
     public void importaFuncionarios(List<Funcionario> all) {

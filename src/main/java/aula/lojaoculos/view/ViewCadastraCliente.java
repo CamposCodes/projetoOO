@@ -2,7 +2,9 @@
 
 import aula.lojaoculos.controller.cliente.CadastrarCliente;
 import aula.lojaoculos.controller.cliente.JanelaCliente;
+import aula.lojaoculos.exceptions.*;
 import aula.lojaoculos.model.Cliente;
+import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.ClientePersistence;
 
 import java.awt.Color;
@@ -102,7 +104,7 @@ import javax.swing.*;
     }
 
     // Método para validar os campos
-    public boolean validarCampos() {
+    public boolean validarCampos() throws Exception {
         String nome = nomeText.getText();
         String dataNascimento = dataNascimentoText.getText();
         String email = emailText.getText();
@@ -111,21 +113,57 @@ import javax.swing.*;
 
         // Expressões regulares para validação
         String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        String regexTelefone = "^\\d{10,11}$";
+        String regexNome = "^[A-Za-z ]+$";
+        String regexTelefone = "^\\(\\d{2}\\)\\d{4,5}-\\d{4}$";
         String regexDataNascimento = "^\\d{2}/\\d{2}/\\d{4}$"; // Formato dd/MM/yyyy
         Pattern patternEmail = Pattern.compile(regexEmail);
+        Pattern patternNome = Pattern.compile(regexNome);
         Pattern patternTelefone = Pattern.compile(regexTelefone);
         Pattern patternDataNascimento = Pattern.compile(regexDataNascimento);
 
         // Validando os campos com as expressões regulares
         Matcher matcherEmail = patternEmail.matcher(email);
+        Matcher matcherNome = patternNome.matcher(nome);
         Matcher matcherTelefone = patternTelefone.matcher(telefone);
         Matcher matcherDataNascimento = patternDataNascimento.matcher(dataNascimento);
 
-        return !nome.isEmpty() && matcherEmail.matches() && matcherTelefone.matches() && matcherDataNascimento.matches() && validarCpf(cpf);
+        if(nome.isBlank()){
+            throw new CampoVazioException("O nome é obrigatório!");
+        }
+
+        if(!matcherEmail.matches()){
+            throw new EmailException("O email deve estar no formato: exemplo@exemplo.com");
+        }
+
+        if(!matcherNome.matches()){
+            throw new NomeException("O nome deve conter somente letras!");
+        }
+
+        if(!matcherTelefone.matches()){
+            throw new TelefoneException("O telefone deve estar no formato (dd)ddddd-dddd");
+        }
+
+        if(!matcherDataNascimento.matches()){
+            throw new DataException("A data deve estar no formato: dd/mm/aaaa");
+        }
+
+        if(!validarCpf(cpf)){
+            throw new CpfException("CPF inválido!");
+        }
+
+        return true;
     }
 
-      public static boolean validarCpf(String cpf) {
+      public static boolean validarCpf(String cpf) throws CpfException {
+
+          String regexCpf = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$";
+          Pattern patternCpf = Pattern.compile(regexCpf);
+          Matcher macherCpf = patternCpf.matcher(cpf);
+
+          if(!macherCpf.matches()){
+              throw new CpfException("O CPF deve estar no formato: ddd.ddd.ddd-dd");
+          }
+
           // Removendo caracteres especiais e espaços em branco do CPF
           cpf = cpf.replaceAll("[^0-9]", "");
 
@@ -183,29 +221,42 @@ import javax.swing.*;
         }
       }
 
-      public void cadastraCliente() {
+      public boolean cadastraCliente() {
 
-          String nome = nomeText.getText();
-          String dataDeNascimento = dataNascimentoText.getText();
-          String email = emailText.getText();
-          String cpf = cpfText.getText();
-          String telefone = telefoneText.getText();
-
-          SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
-          Date data = null;
           try {
-              data = formato.parse(dataDeNascimento);
+              if (validarCampos()) {
 
-          } catch (ParseException e) {
-              e.printStackTrace();
+                  String nome = nomeText.getText();
+                  String dataDeNascimento = dataNascimentoText.getText();
+                  String email = emailText.getText();
+                  String cpf = cpfText.getText();
+                  String telefone = telefoneText.getText();
+
+                  for (Cliente cliente:clientes) {
+                      if(cpf.equals(cliente.getCpf())){
+                          throw new JaCadastradoException("Já existe um cliente cadastrados com esse CPF!");
+                      }
+                  }
+
+                  SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+                  Date data = null;
+                  try {
+                      data = formato.parse(dataDeNascimento);
+
+                  } catch (ParseException e) {
+                      e.printStackTrace();
+                  }
+
+                  this.clientes.add(new Cliente(nome, data, email, cpf, telefone));
+                  clientePersistence.save(this.clientes);
+                  return true;
+              }
+          } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, e.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
           }
-
-          this.clientes.add(new Cliente(nome, data, email, cpf, telefone));
-          clientePersistence.save(this.clientes);
+        return false;
       }
-
-
   }
 
 

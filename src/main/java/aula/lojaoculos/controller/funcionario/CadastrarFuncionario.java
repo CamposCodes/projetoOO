@@ -16,13 +16,9 @@ public class CadastrarFuncionario implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (tela.validarCampos()) {
-            tela.cadastraFuncionario();
+        if(tela.cadastraFuncionario()) {
             JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
             tela.dispose(); // Fecha a janela após o cadastro
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, preencha os campos corretamente!",
-                    "Alerta", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
