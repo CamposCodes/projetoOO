@@ -1,14 +1,16 @@
-
-package aula.lojaoculos.view;
-
 import aula.lojaoculos.controller.funcionario.CadastrarFuncionario;
-import aula.lojaoculos.exceptions.*;
-import aula.lojaoculos.model.Cliente;
+import aula.lojaoculos.exceptions.CampoVazioException;
+import aula.lojaoculos.exceptions.CpfException;
+import aula.lojaoculos.exceptions.DataException;
+import aula.lojaoculos.exceptions.EmailException;
+import aula.lojaoculos.exceptions.JaCadastradoException;
+import aula.lojaoculos.exceptions.NomeException;
+import aula.lojaoculos.exceptions.TelefoneException;
 import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.FuncionarioPersistence;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.FocusEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,88 +21,101 @@ import java.util.regex.Pattern;
 
 public class ViewCadastraFuncionario extends JFrame {
 
-    private JTextField nomeTextField, dataNascimentoTextField, emailTextField, cpfTextField, telefoneTextField, cargoTextField, loginTextField;
-
+    private JTextField nomeTextField, dataNascimentoTextField, emailTextField, cpfTextField, telefoneTextField, loginTextField;
     private JPasswordField senhaPasswordField;
-
     private JComboBox<String> cargoComboBox;
 
     private final FuncionarioPersistence funcionarioPersistence = new FuncionarioPersistence();
     private List<Funcionario> funcionarios;
 
-    public ViewCadastraFuncionario() { }
-    public void desenha(){
+    public ViewCadastraFuncionario() {}
+
+    public void desenha() {
         setTitle("Cadastro de Vendedor");
         setSize(800, 500);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(0, 2, 10, 10));
+        setLayout(null);
 
-        Font labelFont = new Font("Arial", Font.BOLD, 14);
+        Font labelFont = new Font("Arial", Font.PLAIN, 16);
 
-        JLabel nomeLabel = new JLabel("Nome:");
-        nomeLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        JLabel[] labels = {
+                new JLabel("Nome:"),
+                new JLabel("Data de Nascimento:"),
+                new JLabel("Email:"),
+                new JLabel("CPF:"),
+                new JLabel("Telefone:"),
+                new JLabel("Cargo:"),
+                new JLabel("Login:"),
+                new JLabel("Senha:")
+        };
+
+        for (JLabel label : labels) {
+            label.setFont(labelFont);
+        }
+
         nomeTextField = new JTextField();
-
-        JLabel dataNascimentoLabel = new JLabel("Data de Nascimento:");
-        dataNascimentoLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         dataNascimentoTextField = new JTextField();
-
-        JLabel emailLabel = new JLabel("Email:");
-        emailLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         emailTextField = new JTextField();
-
-        JLabel cpfLabel = new JLabel("CPF:");
-        cpfLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         cpfTextField = new JTextField();
-
-        JLabel telefoneLabel = new JLabel("Telefone:");
-        telefoneLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         telefoneTextField = new JTextField();
+        loginTextField = new JTextField();
+        senhaPasswordField = new JPasswordField();
 
-        JLabel cargoLabel = new JLabel("Cargo:");
-        cargoLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        // Defina textos de placeholder para os campos de telefone, data de nascimento e CPF
+        telefoneTextField.setToolTipText("(00)0000-0000"); // Placeholder para telefone
+        dataNascimentoTextField.setToolTipText("00/00/00"); // Placeholder para data de nascimento
+        cpfTextField.setToolTipText("000.000.000-00"); // Placeholder para CPF
+
         String[] cargos = {"Gerente", "Vendedor"};
         cargoComboBox = new JComboBox<>(cargos);
 
-
-        JLabel loginLabel = new JLabel("Login:");
-        loginLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        loginTextField = new JTextField();
-
-        JLabel senhaLabel = new JLabel("Senha:");
-        senhaLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        senhaPasswordField = new JPasswordField();
-
         JButton registrarButton = new JButton("Registrar");
-        registrarButton.setFont(labelFont);
+        registrarButton.setFont(new Font("Arial", Font.BOLD, 14));
         registrarButton.setPreferredSize(new Dimension(150, 40));
         registrarButton.setForeground(Color.WHITE);
         registrarButton.setBackground(Color.BLACK);
         registrarButton.addActionListener(new CadastrarFuncionario(this));
 
-        this.add(nomeLabel);
-        this.add(nomeTextField);
-        this.add(dataNascimentoLabel);
-        this.add(dataNascimentoTextField);
-        this.add(emailLabel);
-        this.add(emailTextField);
-        this.add(cpfLabel);
-        this.add(cpfTextField);
-        this.add(telefoneLabel);
-        this.add(telefoneTextField);
-        this.add(cargoLabel);
-        this.add(cargoComboBox);
-        this.add(loginLabel);
-        this.add(loginTextField);
-        this.add(senhaLabel);
-        this.add(senhaPasswordField);
-        this.add(registrarButton);
+        int posY = 30;
+        int posYIncrement = 50;
+
+        for (JLabel label : labels) {
+            label.setBounds(50, posY, 150, 30);
+            add(label);
+            posY += posYIncrement;
+        }
+
+        JTextField[] textFields = {
+                nomeTextField,
+                dataNascimentoTextField,
+                emailTextField,
+                cpfTextField,
+                telefoneTextField,
+                loginTextField
+        };
+
+        posY = 30;
+
+        for (JTextField textField : textFields) {
+            textField.setBounds(210, posY, 200, 30);
+            add(textField);
+            posY += posYIncrement;
+        }
+
+        cargoComboBox.setBounds(210, 230, 200, 30);
+        add(cargoComboBox);
+
+        senhaPasswordField.setBounds(210, 330, 200, 30);
+        add(senhaPasswordField);
+
+        registrarButton.setBounds(50, 380, 150, 40);
+        add(registrarButton);
 
         setVisible(true);
     }
-
+    
     public boolean validarCampos() throws Exception {
         String nome = nomeTextField.getText();
         String dataNascimento = dataNascimentoTextField.getText();

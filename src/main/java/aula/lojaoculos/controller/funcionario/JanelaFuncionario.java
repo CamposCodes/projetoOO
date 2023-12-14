@@ -1,5 +1,6 @@
 package aula.lojaoculos.controller.funcionario;
 
+
 import aula.lojaoculos.model.Cliente;
 import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.ClientePersistence;

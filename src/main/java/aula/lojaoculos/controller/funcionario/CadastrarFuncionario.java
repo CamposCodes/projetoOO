@@ -1,6 +1,6 @@
 package aula.lojaoculos.controller.funcionario;
+package aula.lojaoculos.view.ViewCadastraFuncionario;
 
-import aula.lojaoculos.view.ViewCadastraFuncionario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

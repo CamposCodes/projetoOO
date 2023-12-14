@@ -71,9 +71,8 @@ public class ViewGerente extends JFrame {
         cadastroFuncionarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViewCadastraFuncionario tela = new ViewCadastraFuncionario();
-                tela.addWindowListener(new JanelaFuncionario(tela));
-                tela.desenha();
+                new ViewCadastraFuncionario();  
+                
             }
         });
         
