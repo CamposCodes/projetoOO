@@ -11,11 +11,25 @@ public class Funcionario extends Pessoa {
     private final String login;
     private final String senha;
 
+    public String getCargo() {
+        return cargo;
+    }
 
-    public Funcionario(String nome, Date dtnasc, String email, String cpf, String telefone, String cargo, int codigo, String login, String senha) {
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public Funcionario(String nome, Date dtnasc, String email, String cpf, String telefone, String cargo, String login, String senha) {
         super(nome, dtnasc, email, cpf, telefone);
         this.cargo = cargo;
-        this.codigo = codigo;
         this.login = login;
         this.senha = senha;
         DadosDeCodigosPersistence persistence = new DadosDeCodigosPersistence();
