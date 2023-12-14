@@ -15,4 +15,8 @@ public abstract class Pessoa {
         this.cpf = cpf;
         this.telefone = telefone;
     }
+
+    public String getCpf() {
+        return this.cpf;
+    }
 }
