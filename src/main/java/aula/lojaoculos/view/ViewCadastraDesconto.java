@@ -73,7 +73,7 @@ public class ViewCadastraDesconto extends JFrame {
         valorMinimoText.setBounds(350, 280, 250, 30);
         add(valorMinimoText);
 
-        JButton cadastrarButton = new JButton("Cadastrar");
+        JButton cadastrarButton = new git JButton("Cadastrar");
         cadastrarButton.setBounds(300, 350, 150, 40);
         cadastrarButton.setFont(buttonFont);
         cadastrarButton.setForeground(foregroundColor);

@@ -10,7 +10,7 @@ public class ViewOculosEscurosGrau extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(0, 2, 10, 10));
+        setLayout(null); // Mudança para layout null
 
         Font labelFont = new Font("Arial", Font.BOLD, 14);
 
@@ -37,6 +37,31 @@ public class ViewOculosEscurosGrau extends JFrame {
         
         JButton registrarButton = createButton("Registrar", 150, 40, labelFont, Color.WHITE, Color.BLACK);
 
+        // Definindo posições usando setBounds
+        modeloLabel.setBounds(50, 50, 150, 30);
+        modeloTextField.setBounds(210, 50, 200, 30);
+
+        marcaLabel.setBounds(50, 100, 150, 30);
+        marcaTextField.setBounds(210, 100, 200, 30);
+
+        precoLabel.setBounds(50, 150, 150, 30);
+        precoTextField.setBounds(210, 150, 200, 30);
+
+        grauEsquerdaLabel.setBounds(50, 200, 150, 30);
+        grauEsquerdaTextField.setBounds(210, 200, 200, 30);
+
+        grauDireitaLabel.setBounds(50, 250, 150, 30);
+        grauDireitaTextField.setBounds(210, 250, 200, 30);
+
+        tipoLenteLabel.setBounds(50, 300, 150, 30);
+        tipoLenteTextField.setBounds(210, 300, 200, 30);
+
+        polarizadoLabel.setBounds(50, 350, 150, 30);
+        polarizadoTextField.setBounds(210, 350, 200, 30);
+
+        registrarButton.setBounds(50, 400, 150, 40);
+
+        // Adicionando os componentes ao frame
         add(modeloLabel);
         add(modeloTextField);
         add(marcaLabel);
