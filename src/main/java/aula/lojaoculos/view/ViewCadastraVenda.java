@@ -1,13 +1,13 @@
 package aula.lojaoculos.view;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.*;
 
 public class ViewCadastraVenda extends JFrame {
-    JTextField valorText, dataText, quantidadeText, codigoDescontoText, valorDescontoText, creditosUtilizadosText;
-    JTable tabelaItens;
-    JComboBox<String> listaProdutos, listaClientes;
+
+    JTextField valorText, dataText, codigoDescontoText, valorDescontoText, creditosUtilizadosText;
     JButton cadastrarItemButton, criarNovoClienteButton, calcularButton, confirmarVendaButton;
-    JLabel labelValor;
 
     public ViewCadastraVenda() {
         setTitle("Cadastro de Venda");
@@ -17,92 +17,86 @@ public class ViewCadastraVenda extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
-        // Campo para o valor da venda
-        labelValor = new JLabel("Valor:");
-        labelValor.setBounds(50, 50, 100, 30);
-        add(labelValor);
+        int textFieldWidth = 200;
+        int textFieldHeight = 40;
+        int buttonWidth = 200;
+        int buttonHeight = 60;
+        Font buttonFont = new Font("Arial", Font.BOLD, 18);
+        Color foregroundColor = new Color(237, 241, 238);
+        Color backgroundColor = new Color(9, 10, 9);
 
-        valorText = new JTextField();
-        valorText.setBounds(150, 50, 200, 30);
-        add(valorText);
+        valorText = createTextField(300, 50, textFieldWidth, textFieldHeight);
+        dataText = createTextField(300, 100, textFieldWidth, textFieldHeight);
+        codigoDescontoText = createTextField(300, 150, textFieldWidth, textFieldHeight);
+        valorDescontoText = createTextField(300, 200, textFieldWidth, textFieldHeight);
+        creditosUtilizadosText = createTextField(300, 250, textFieldWidth, textFieldHeight);
 
-        // Campo para a data
-        JLabel labelData = new JLabel("Data:");
-        labelData.setBounds(50, 90, 100, 30);
-        add(labelData);
-
-        dataText = new JTextField();
-        dataText.setBounds(150, 90, 200, 30);
-        add(dataText);
-
-        // Campo para o cupom de desconto
-        JLabel labelCodigoDesconto = new JLabel("Cupom de Desconto:");
-        labelCodigoDesconto.setBounds(50, 130, 150, 30);
-        add(labelCodigoDesconto);
-
-        codigoDescontoText = new JTextField();
-        codigoDescontoText.setBounds(200, 130, 150, 30);
-        add(codigoDescontoText);
-
-        // Campo para o valor do desconto
-        JLabel labelValorDesconto = new JLabel("Valor do Desconto:");
-        labelValorDesconto.setBounds(50, 170, 150, 30);
-        add(labelValorDesconto);
-
-        valorDescontoText = new JTextField();
-        valorDescontoText.setBounds(200, 170, 150, 30);
-        add(valorDescontoText);
-
-        // Campo para os créditos utilizados pelo cliente
-        JLabel labelCreditosUtilizados = new JLabel("Créditos Utilizados:");
-        labelCreditosUtilizados.setBounds(50, 210, 150, 30);
-        add(labelCreditosUtilizados);
-
-        creditosUtilizadosText = new JTextField();
-        creditosUtilizadosText.setBounds(200, 210, 150, 30);
-        add(creditosUtilizadosText);
-
-        // Botões existentes
-        cadastrarItemButton = new JButton("Cadastrar Item");
-        cadastrarItemButton.setBounds(50, 400, 150, 30);
+        cadastrarItemButton = createButton("Cadastrar Item", 50, 380, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         cadastrarItemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar lógica para cadastrar um item na tabela de itens
+                new ViewCadastraProduto();
             }
         });
-        add(cadastrarItemButton);
 
-        criarNovoClienteButton = new JButton("Novo Cliente");
-        criarNovoClienteButton.setBounds(250, 400, 150, 30);
+        criarNovoClienteButton = createButton("Novo Cliente", 300, 380, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         criarNovoClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar lógica para abrir a tela de cadastro de novo cliente
+                new ViewCadastraCliente();
             }
         });
-        add(criarNovoClienteButton);
 
-        calcularButton = new JButton("Calcular");
-        calcularButton.setBounds(50, 450, 150, 30);
+        calcularButton = createButton("Calcular", 50, 480, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         calcularButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar lógica para calcular valores
+                // Lógica para o botão calcularButton
             }
         });
-        add(calcularButton);
 
-        confirmarVendaButton = new JButton("Confirmar Venda");
-        confirmarVendaButton.setBounds(250, 450, 150, 30);
+        confirmarVendaButton = createButton("Confirmar Venda", 300, 480, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         confirmarVendaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar lógica para confirmar a venda
+                // Lógica para o botão confirmarVendaButton
             }
         });
-        add(confirmarVendaButton);
+
+        addComponentsToFrame();
 
         setVisible(true);
+    }
+
+    private JTextField createTextField(int x, int y, int width, int height) {
+        JTextField textField = new JTextField();
+        textField.setBounds(x, y, width, height);
+        add(textField);
+        return textField;
+    }
+
+    private JButton createButton(String text, int x, int y, int width, int height, Font font, Color foregroundColor, Color backgroundColor) {
+        JButton button = new JButton(text);
+        button.setBounds(x, y, width, height);
+        button.setFont(font);
+        button.setForeground(foregroundColor);
+        button.setBackground(backgroundColor);
+        add(button);
+        return button;
+    }
+
+    private void addComponentsToFrame() {
+        addLabelToFrame("Valor:", 50, 50, 250, 40); // Alteração no width para 250
+        addLabelToFrame("Data:", 50, 100, 250, 40); // Alteração no width para 250
+        addLabelToFrame("Cupom de Desconto:", 50, 150, 250, 40); // Alteração no width para 250
+        addLabelToFrame("Valor do Desconto:", 50, 200, 250, 40); // Alteração no width para 250
+        addLabelToFrame("Créditos Utilizados:", 50, 250, 250, 40); // Alteração no width para 250
+    }
+
+    private void addLabelToFrame(String text, int x, int y, int width, int height) {
+        JLabel label = new JLabel(text);
+        label.setBounds(x, y, width, height);
+        label.setFont(new Font("Arial", Font.PLAIN, 18));
+        add(label);
     }
 }

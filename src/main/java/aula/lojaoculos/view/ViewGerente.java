@@ -50,9 +50,7 @@ public class ViewGerente extends JFrame {
         cadastrarVendaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViewCadastraVenda tela = new ViewCadastraVenda();
-               //tela.addWindowListener(new JanelaFuncionario(tela));
-                //tela.desenha();
+                new ViewCadastraVenda();
             }
         });
 
