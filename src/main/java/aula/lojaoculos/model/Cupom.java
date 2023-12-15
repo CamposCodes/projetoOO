@@ -5,7 +5,7 @@ public class Cupom extends Desconto {
     private double valorMinimoUso;
 
 
-    public Cupom(String codigo, double valorDoCupom, int valorMinimoUso) {
+    public Cupom(String codigo, double valorDoCupom, double valorMinimoUso) {
         super(codigo);
         this.valorDoCupom = valorDoCupom;
         this.valorMinimoUso = valorMinimoUso;
