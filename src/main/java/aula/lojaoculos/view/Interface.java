@@ -1,5 +1,4 @@
 package aula.lojaoculos.view;
-import aula.lojaoculos.controller.cliente.JanelaCliente;
 import aula.lojaoculos.exceptions.CampoVazioException;
 import aula.lojaoculos.exceptions.NaoEncontradoException;
 import aula.lojaoculos.model.Funcionario;
@@ -7,7 +6,6 @@ import aula.lojaoculos.persistence.FuncionarioPersistence;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
@@ -83,7 +81,7 @@ public class Interface extends JFrame {
                     JOptionPane.showMessageDialog(null,"Entrada Autorizada!");
                     new ViewVendedor();
                 } else {
-                        throw new NaoEncontradoException("Usuário não encontrado"); // TODO: Tratar essa exceção
+                        throw new NaoEncontradoException("Usuário não encontrado");
                 }
             } catch (Exception erro) {
                 JOptionPane.showMessageDialog(null, erro.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
