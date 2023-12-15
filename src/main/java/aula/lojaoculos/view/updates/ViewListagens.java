@@ -1,7 +1,9 @@
 package aula.lojaoculos.view.updates;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 
 public class ViewListagens extends JFrame {
 
@@ -37,6 +39,18 @@ public class ViewListagens extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ViewEditaRemoveFuncionario();
+            }
+        });
+        atualizaClientesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewEditaRemoveCliente();
+            }
+        });
+        atualizaDescontosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewEditaRemoveDesconto();
             }
         });
 
