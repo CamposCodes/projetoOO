@@ -58,6 +58,11 @@ public class ViewListagens extends JFrame {
                 dispose(); // Fecha a janela atual
             }
         });
+        atualizaVendasButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new ViewEditaRemoveVenda();
+            }
+        });
 
         // Adicione os botões ao frame
         add(Box.createVerticalStrut(buttonPadding));
