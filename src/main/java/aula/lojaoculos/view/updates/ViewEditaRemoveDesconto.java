@@ -2,6 +2,7 @@ package aula.lojaoculos.view.updates;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.border.EmptyBorder;
 
 public class ViewEditaRemoveDesconto extends JFrame {
     private JTextField codigoText, porcentagemText, valorText, valorMinimoText;
@@ -18,30 +19,33 @@ public class ViewEditaRemoveDesconto extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
+        setLayout(null);
 
         discountPanel = new JPanel(); // Novo painel para os descontos
         discountPanel.setLayout(new BorderLayout());
-        discountPanel.setPreferredSize(new Dimension(300, 600)); // Largura do painel de desconto
-        add(discountPanel, BorderLayout.WEST);
+        discountPanel.setBounds(10, 10, 300, 540); // Posição e tamanho do painel de desconto
+        discountPanel.setBorder(BorderFactory.createTitledBorder("Descontos")); // Adiciona uma borda com título
+        add(discountPanel);
 
         // Adicionando a lista de descontos ao novo painel à esquerda
         descontosList = new JList<>(new String[]{"Desconto 1", "Desconto 2", "Desconto 3"}); // Substitua com seus próprios dados
         JScrollPane scrollPane = new JScrollPane(descontosList);
-        scrollPane.setPreferredSize(new Dimension(300, 600)); // Ajuste o tamanho conforme necessário
-        discountPanel.add(scrollPane, BorderLayout.CENTER);
+        scrollPane.setPreferredSize(new Dimension(280, 500)); // Ajuste o tamanho conforme necessário
+        discountPanel.add(scrollPane);
 
         formPanel = new JPanel();
         formPanel.setLayout(null);
-        formPanel.setPreferredSize(new Dimension(600, 600)); // Largura do formulário
-        add(formPanel, BorderLayout.CENTER);
+        formPanel.setBounds(320, 10, 570, 540); // Posição e tamanho do painel de formulário
+        formPanel.setBorder(BorderFactory.createTitledBorder("Editar/Remover")); // Adiciona uma borda com título
+        add(formPanel);
 
         JLabel tipoLabel = new JLabel("Tipo de Desconto:");
         tipoLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        tipoLabel.setBounds(20, 30, 200, 30);
         formPanel.add(tipoLabel);
 
-        cashbackRadio = createRadioButton("Cashback", 20, 20, 100, 30);
-        cupomRadio = createRadioButton("Cupom", 150, 20, 100, 30);
+        cashbackRadio = createRadioButton("Cashback", 20, 70, 100, 30);
+        cupomRadio = createRadioButton("Cupom", 150, 70, 100, 30);
 
         buttonGroup = new ButtonGroup();
         buttonGroup.add(cashbackRadio);
@@ -50,32 +54,32 @@ public class ViewEditaRemoveDesconto extends JFrame {
         formPanel.add(cupomRadio);
 
         codigoLabel = new JLabel("Código do Desconto:");
-        codigoLabel.setBounds(50, 70, 200, 30);
+        codigoLabel.setBounds(50, 120, 200, 30);
         codigoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         formPanel.add(codigoLabel);
 
-        codigoText = createTextField(260, 70, 170, 30);
+        codigoText = createTextField(260, 120, 170, 30);
 
         porcentagemLabel = new JLabel("Porcentagem Cashback:");
-        porcentagemLabel.setBounds(50, 120, 250, 30);
+        porcentagemLabel.setBounds(50, 170, 250, 30);
         porcentagemLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         formPanel.add(porcentagemLabel);
 
-        porcentagemText = createTextField(260, 120, 250, 30);
+        porcentagemText = createTextField(260, 170, 250, 30);
 
         valorLabel = new JLabel("Valor do Cupom:");
-        valorLabel.setBounds(50, 170, 200, 30);
+        valorLabel.setBounds(50, 220, 200, 30);
         valorLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         formPanel.add(valorLabel);
 
-        valorText = createTextField(260, 170, 250, 30);
+        valorText = createTextField(260, 220, 250, 30);
 
         valorMinimoLabel = new JLabel("Valor Mínimo para Uso:");
-        valorMinimoLabel.setBounds(50, 220, 200, 30);
+        valorMinimoLabel.setBounds(50, 270, 200, 30);
         valorMinimoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         formPanel.add(valorMinimoLabel);
 
-        valorMinimoText = createTextField(260, 220, 250, 30);
+        valorMinimoText = createTextField(260, 270, 250, 30);
 
         // Botões editar e remover
         JButton editarButton = createButton("Editar", new Font("Arial", Font.PLAIN, 16), Color.WHITE, Color.BLACK);
@@ -134,4 +138,9 @@ public class ViewEditaRemoveDesconto extends JFrame {
         return button;
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new ViewEditaRemoveDesconto();
+        });
+    }
 }

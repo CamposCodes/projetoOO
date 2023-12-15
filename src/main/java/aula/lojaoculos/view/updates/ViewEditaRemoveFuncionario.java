@@ -1,18 +1,10 @@
 package aula.lojaoculos.view.updates;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 
 public class ViewEditaRemoveFuncionario extends JFrame {
-    private DefaultListModel<String> vendedorListModel;
+    private DefaultListModel<String> funcionarioListModel;
     private JPanel formPanel;
     private JButton editButton, removeButton;
     private JTextField nomeTextField, dataNascimentoTextField, emailTextField, cpfTextField, telefoneTextField, loginTextField, senhaTextField;
@@ -20,20 +12,23 @@ public class ViewEditaRemoveFuncionario extends JFrame {
 
     public ViewEditaRemoveFuncionario() {
         setTitle("Edita e Remove Vendedores");
-        setSize(900, 600); // Aumento na altura da janela para acomodar os botões   
+        setSize(900, 600); // Aumento na altura da janela para acomodar os botões
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
 
-        vendedorListModel = new DefaultListModel<>();
-        JScrollPane listScrollPane = new JScrollPane();
-        listScrollPane.setBounds(50, 70, 200, 400);
+        funcionarioListModel = new DefaultListModel<>();
+        JList<String> funcionarioList = new JList<>(funcionarioListModel);
+        JScrollPane listScrollPane = new JScrollPane(funcionarioList);
+        listScrollPane.setBounds(50, 50, 200, 500);
+        listScrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Funcionários")); // Adiciona uma borda com título
         add(listScrollPane);
 
         formPanel = new JPanel();
         formPanel.setLayout(null);
         formPanel.setBounds(280, 50, 550, 500);
+        formPanel.setBorder(BorderFactory.createTitledBorder("Editar/Remover")); // Adiciona uma borda com título
         add(formPanel);
 
         addLabelToFrame("Nome:", 10, 20, 150, 30);
@@ -97,4 +92,5 @@ public class ViewEditaRemoveFuncionario extends JFrame {
         button.setBackground(backgroundColor);
         return button;
     }
+
 }

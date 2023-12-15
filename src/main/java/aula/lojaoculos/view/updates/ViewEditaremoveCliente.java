@@ -21,6 +21,7 @@ public class ViewEditaRemoveCliente extends JFrame {
         clienteListModel = new DefaultListModel<>();
         JScrollPane listScrollPane = new JScrollPane();
         listScrollPane.setBounds(50, 70, 200, 400);
+        
         add(listScrollPane);
 
         formPanel = new JPanel();
