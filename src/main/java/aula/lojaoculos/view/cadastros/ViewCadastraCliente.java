@@ -1,10 +1,9 @@
-  package aula.lojaoculos.view;
+  package aula.lojaoculos.view.cadastros;
 
 import aula.lojaoculos.controller.cliente.CadastrarCliente;
 import aula.lojaoculos.controller.cliente.JanelaCliente;
 import aula.lojaoculos.exceptions.*;
 import aula.lojaoculos.model.Cliente;
-import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.ClientePersistence;
 
 import java.awt.Color;
@@ -132,7 +131,7 @@ import javax.swing.*;
         }
 
         if(!matcherEmail.matches()){
-            throw new EmailException("O email deve estar no formato: exemplo@exemplo.com");
+            throw new FormatoException("O email deve estar no formato: exemplo@exemplo.com");
         }
 
         if(!matcherNome.matches()){
@@ -140,11 +139,11 @@ import javax.swing.*;
         }
 
         if(!matcherTelefone.matches()){
-            throw new TelefoneException("O telefone deve estar no formato (dd)ddddd-dddd");
+            throw new FormatoException("O telefone deve estar no formato (dd)ddddd-dddd");
         }
 
         if(!matcherDataNascimento.matches()){
-            throw new DataException("A data deve estar no formato: dd/mm/aaaa");
+            throw new FormatoException("A data deve estar no formato: dd/mm/aaaa");
         }
 
         if(!validarCpf(cpf)){

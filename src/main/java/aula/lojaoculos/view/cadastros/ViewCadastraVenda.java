@@ -1,4 +1,4 @@
-package aula.lojaoculos.view;
+package aula.lojaoculos.view.cadastros;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;

@@ -1,16 +1,11 @@
+package aula.lojaoculos.view.cadastros;
+
 import aula.lojaoculos.controller.funcionario.CadastrarFuncionario;
-import aula.lojaoculos.exceptions.CampoVazioException;
-import aula.lojaoculos.exceptions.CpfException;
-import aula.lojaoculos.exceptions.DataException;
-import aula.lojaoculos.exceptions.EmailException;
-import aula.lojaoculos.exceptions.JaCadastradoException;
-import aula.lojaoculos.exceptions.NomeException;
-import aula.lojaoculos.exceptions.TelefoneException;
+import aula.lojaoculos.exceptions.*;
 import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.persistence.FuncionarioPersistence;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -104,10 +99,10 @@ public class ViewCadastraFuncionario extends JFrame {
             posY += posYIncrement;
         }
 
-        cargoComboBox.setBounds(210, 230, 200, 30);
+        cargoComboBox.setBounds(0, 0, 200, 30);
         add(cargoComboBox);
 
-        senhaPasswordField.setBounds(210, 330, 200, 30);
+        senhaPasswordField.setBounds(270, 130, 200, 30);
         add(senhaPasswordField);
 
         registrarButton.setBounds(50, 380, 150, 40);
@@ -146,7 +141,7 @@ public class ViewCadastraFuncionario extends JFrame {
         }
 
         if(!matcherEmail.matches()){
-            throw new EmailException("O email deve estar no formato: exemplo@exemplo.com");
+            throw new FormatoException("O email deve estar no formato: exemplo@exemplo.com");
         }
 
         if(!matcherNome.matches()){
@@ -154,11 +149,11 @@ public class ViewCadastraFuncionario extends JFrame {
         }
 
         if(!matcherTelefone.matches()){
-            throw new TelefoneException("O telefone deve estar no formato (dd)ddddd-dddd");
+            throw new FormatoException("O telefone deve estar no formato (dd)ddddd-dddd");
         }
 
         if(!matcherDataNascimento.matches()){
-            throw new DataException("A data deve estar no formato: dd/mm/aaaa");
+            throw new FormatoException("A data deve estar no formato: dd/mm/aaaa");
         }
 
         if(!validarCpf(cpf)){

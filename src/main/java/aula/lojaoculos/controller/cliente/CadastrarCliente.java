@@ -1,6 +1,6 @@
 package aula.lojaoculos.controller.cliente;
 
-import aula.lojaoculos.view.ViewCadastraCliente;
+import aula.lojaoculos.view.cadastros.ViewCadastraCliente;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

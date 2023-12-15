@@ -1,10 +1,9 @@
 package aula.lojaoculos.controller.funcionario;
-package aula.lojaoculos.view.ViewCadastraFuncionario;
-
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import aula.lojaoculos.view.cadastros.ViewCadastraFuncionario;
 
 public class CadastrarFuncionario implements ActionListener {
 

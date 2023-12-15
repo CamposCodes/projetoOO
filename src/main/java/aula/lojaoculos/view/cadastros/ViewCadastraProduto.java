@@ -1,4 +1,8 @@
-package aula.lojaoculos.view;
+package aula.lojaoculos.view.cadastros;
+
+import aula.lojaoculos.controller.produto.oculosEscuro.JanelaOculosEscuro;
+import aula.lojaoculos.controller.produto.oculosEscuroGrau.JanelaOculosEscuroGrau;
+import aula.lojaoculos.controller.produto.oculosGrau.JanelaOculosGrau;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +18,6 @@ public class ViewCadastraProduto extends JFrame {
         setLayout(null); // Layout nulo para usar setBounds
 
         // Configuração do espaçamento entre os botões
-        int buttonPadding = 20;
         int buttonWidth = 300;
         int buttonHeight = 60;
         Font buttonFont = new Font("Arial", Font.BOLD, 20);
@@ -30,19 +33,25 @@ public class ViewCadastraProduto extends JFrame {
         oculosEscurosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewOculosEscuros();
+                ViewOculosEscuros tela = new ViewOculosEscuros();
+                tela.addWindowListener(new JanelaOculosEscuro(tela));
+                tela.desenha();
             }
         });
         oculosEscurosGrauButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewOculosEscurosGrau();
+                ViewOculosEscurosGrau tela = new ViewOculosEscurosGrau();
+                tela.addWindowListener(new JanelaOculosEscuroGrau(tela));
+                tela.desenha();
             }
         });
         oculosGrauButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewOculosGrau();
+                ViewOculosGrau tela = new ViewOculosGrau();
+                tela.addWindowListener(new JanelaOculosGrau(tela));
+                tela.desenha();
             }
         });
 

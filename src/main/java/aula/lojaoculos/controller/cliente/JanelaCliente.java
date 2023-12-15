@@ -3,7 +3,7 @@ package aula.lojaoculos.controller.cliente;
 import aula.lojaoculos.model.Cliente;
 import aula.lojaoculos.persistence.ClientePersistence;
 import aula.lojaoculos.persistence.Persistence;
-import aula.lojaoculos.view.ViewCadastraCliente;
+import aula.lojaoculos.view.cadastros.ViewCadastraCliente;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

@@ -1,5 +1,8 @@
 package aula.lojaoculos.view;
 
+import aula.lojaoculos.view.cadastros.ViewCadastraCliente;
+import aula.lojaoculos.view.cadastros.ViewCadastraVenda;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
