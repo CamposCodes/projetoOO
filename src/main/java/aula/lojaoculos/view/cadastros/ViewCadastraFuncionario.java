@@ -41,9 +41,9 @@ public class ViewCadastraFuncionario extends JFrame {
                 new JLabel("Email:"),
                 new JLabel("CPF:"),
                 new JLabel("Telefone:"),
-                new JLabel("Cargo:"),
                 new JLabel("Login:"),
-                new JLabel("Senha:")
+                new JLabel("Senha:"),
+                new JLabel("Cargo:")
         };
 
         for (JLabel label : labels) {
@@ -99,13 +99,13 @@ public class ViewCadastraFuncionario extends JFrame {
             posY += posYIncrement;
         }
 
-        cargoComboBox.setBounds(0, 0, 200, 30);
+        cargoComboBox.setBounds(210, 380, 200, 30);
         add(cargoComboBox);
 
-        senhaPasswordField.setBounds(270, 130, 200, 30);
+        senhaPasswordField.setBounds(210, 330, 200, 30);
         add(senhaPasswordField);
 
-        registrarButton.setBounds(50, 380, 150, 40);
+        registrarButton.setBounds(450, 380, 150, 40);
         add(registrarButton);
 
         setVisible(true);

@@ -4,113 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd3b121e-b127-4418-af82-01f43d3d4f21" name="Changes" comment="Added new package &quot;caadastros&quot; do the view Folder to keep it neater">
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/desconto/CadastrarDesconto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/desconto/JanelaDesconto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosEscuro/JanelaOculosEscuro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosEscuro/RegistrarOculosEscuro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosEscuroGrau/JanelaOculosEscuroGrau.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosEscuroGrau/RegistrarOculosEscuroGrau.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosGrau/JanelaOculosGrau.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosGrau/RegistrarOculosGrau.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/FormatoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/exceptions/PrecoException.java" afterDir="false" />
+    <list default="true" id="bd3b121e-b127-4418-af82-01f43d3d4f21" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/clientes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dadosDeCodigos.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/funcionarios.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/LojaOculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/LojaOculos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Cupom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Cupom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Desconto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Desconto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosEscuros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosEscuros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosGrauEscuro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosGrauEscuro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/DescontoPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/DescontoPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/OculosPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/OculosPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewGerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewOculosEscuros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewOculosEscuros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewOculosEscurosGrau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewOculosEscurosGrau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewOculosGrau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewOculosGrau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LojaOculos-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ViewCadastraFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ViewCadastraVenda$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ViewCadastraVenda$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ViewCadastraVenda$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ViewCadastraVenda$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/LojaOculos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/cliente/CadastrarCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/cliente/JanelaCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/funcionario/CadastrarFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/funcionario/JanelaFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/CampoVazioException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/CpfException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/DataException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/EmailException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/JaCadastradoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/NaoEncontradoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/NomeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/TelefoneException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Cashback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Cupom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/DadosDeCodigos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Desconto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Funcionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Oculos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/OculosEscuros.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/OculosGrau.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/OculosGrauEscuro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Pessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Venda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/Arquivo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/ClientePersistence$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/ClientePersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DadosDeCodigosPersistence$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DadosDeCodigosPersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DescontoPersistence$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DescontoPersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/FuncionarioPersistence$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/FuncionarioPersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/OculosPersistence$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/OculosPersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/Persistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/VendaPersistence$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/VendaPersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/Interface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraDesconto$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraDesconto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraProduto$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraProduto$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraProduto$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraProduto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraVenda$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraVenda$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraVenda$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraVenda$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewCadastraVenda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewOculosEscuros.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewOculosEscurosGrau.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewOculosGrau.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewCadastraFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewCadastraFuncionario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +199,70 @@
       <option name="project" value="LOCAL" />
       <updated>1702609396956</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Created &quot;desconto&quot; registering">
+      <created>1702609482427</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609482427</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updated cupom constructor">
+      <created>1702609521643</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609521643</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added getter and setter to the &quot;Desconto&quot; class">
+      <created>1702609557215</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609557215</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changed the structure of the Persistence findAll implementation for the abstract class arrays">
+      <created>1702609736630</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609736630</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Created Preco Exception">
+      <created>1702609770309</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609770309</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Created the product registering logic">
+      <created>1702609923409</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609923409</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Used new exception for not found user">
+      <created>1702609976526</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702609976526</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Changed &quot;polarizado&quot; attribute from boolean to String">
+      <created>1702610022831</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1702610022831</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Update">
+      <created>1702610055537</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1702610055537</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,20 +281,20 @@
     <MESSAGE value="Cleaned up main function" />
     <MESSAGE value="update" />
     <MESSAGE value="Added new package &quot;caadastros&quot; do the view Folder to keep it neater" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new package &quot;caadastros&quot; do the view Folder to keep it neater" />
+    <MESSAGE value="Created &quot;desconto&quot; registering" />
+    <MESSAGE value="updated cupom constructor" />
+    <MESSAGE value="Added getter and setter to the &quot;Desconto&quot; class" />
+    <MESSAGE value="Changed the structure of the Persistence findAll implementation for the abstract class arrays" />
+    <MESSAGE value="Created Preco Exception" />
+    <MESSAGE value="Created the product registering logic" />
+    <MESSAGE value="Used new exception for not found user" />
+    <MESSAGE value="Changed &quot;polarizado&quot; attribute from boolean to String" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewCadastraFuncionario.java</url>
-          <line>113</line>
-          <properties class="aula.lojaoculos.view.cadastros.ViewCadastraFuncionario" method="validarCampos">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosEscuro/RegistrarOculosEscuro.java</url>
           <line>17</line>
@@ -356,7 +315,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/DescontoPersistence.java</url>
-          <line>49</line>
+          <line>47</line>
           <properties class="aula.lojaoculos.persistence.DescontoPersistence" method="retornaObjetoDesconto">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -410,7 +369,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/desconto/JanelaDesconto.java</url>
-          <line>22</line>
+          <line>19</line>
           <properties class="aula.lojaoculos.controller.desconto.JanelaDesconto" method="windowOpened">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -419,7 +378,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/desconto/JanelaDesconto.java</url>
-          <line>29</line>
+          <line>26</line>
           <properties class="aula.lojaoculos.controller.desconto.JanelaDesconto" method="windowClosing">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
