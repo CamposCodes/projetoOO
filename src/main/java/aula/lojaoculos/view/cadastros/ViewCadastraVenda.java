@@ -31,11 +31,11 @@ public class ViewCadastraVenda extends JFrame {
         valorDescontoText = createTextField(300, 200, textFieldWidth, textFieldHeight);
         creditosUtilizadosText = createTextField(300, 250, textFieldWidth, textFieldHeight);
 
-        cadastrarItemButton = createButton("Cadastrar Item", 50, 380, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+        cadastrarItemButton = createButton("Adicionar Item", 50, 380, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         cadastrarItemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraProduto();
+                new ViewAdicionaProduto();
             }
         });
 
