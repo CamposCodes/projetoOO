@@ -39,4 +39,8 @@ public class Funcionario extends Pessoa {
         persistence.save(codigos);
     }
 
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

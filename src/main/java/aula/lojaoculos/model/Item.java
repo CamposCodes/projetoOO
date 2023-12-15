@@ -6,6 +6,15 @@ public class Item {
     double total;
     Oculos produto;
 
+    public Oculos getProduto() {
+        return produto;
+    }
+
+    @Override
+    public String toString() {
+        return produto.getModelo();
+    }
+
     public Item(double custoUnitario, int quantidade, double total, Oculos produto) {
         this.custoUnitario = custoUnitario;
         this.quantidade = quantidade;

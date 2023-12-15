@@ -17,4 +17,14 @@ public class Cliente extends Pessoa{
         codigos.setCodigoCliente(codigo + 1);
         persistence.save(codigos);
     }
+
+    public double getCreditosNaLoja() {
+        return creditosNaLoja;
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }
+
