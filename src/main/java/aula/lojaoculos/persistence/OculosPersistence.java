@@ -1,5 +1,11 @@
 package aula.lojaoculos.persistence;
 
+import aula.lojaoculos.model.OculosEscuros;
+import aula.lojaoculos.model.OculosGrau;
+import aula.lojaoculos.model.OculosGrauEscuro;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import aula.lojaoculos.model.Oculos;
 
@@ -26,22 +32,43 @@ public class OculosPersistence implements Persistence<Oculos> {
 
     @Override
     public List<Oculos> findAll() {
-        Gson gson = new Gson();
 
         String json = Arquivo.le(PATH);
 
         List<Oculos> oculos = new ArrayList<>();
-        if(!json.trim().equals("")) {
 
-            Type tipoLista = new TypeToken<List<Oculos>>() {
-            }.getType();
-            oculos = gson.fromJson(json, tipoLista);
-
-            if (oculos == null)
-                oculos = new ArrayList<>();
+        JsonElement elemento = JsonParser.parseString(json);
+        if(!elemento.isJsonNull()){
+            JsonArray array = elemento.getAsJsonArray();
+            for (JsonElement item : array){
+                oculos.add(retornaObjetoOculos(item));
+            }
         }
 
         return oculos;
+    }
+
+    private Oculos retornaObjetoOculos(JsonElement objeto){
+
+        String objetoEmString = objeto.toString();
+        Type tipoOculos;
+
+        Gson gson = new Gson();
+
+        if(objetoEmString.contains("corDaLente") && objetoEmString.contains("grauEsquerda")){ // CASO SEJA ESCURO E GRAU
+            tipoOculos = new TypeToken<OculosGrauEscuro>() {}.getType();
+            return gson.fromJson(objeto, tipoOculos);
+
+        } else if (!objetoEmString.contains("corDaLente") && objetoEmString.contains("grauEsquerda")) { // CASO SEJA SO GRAU
+            tipoOculos = new TypeToken<OculosGrau>() {}.getType();
+            return gson.fromJson(objeto, tipoOculos);
+
+        } else if (objetoEmString.contains("corDaLente") && !objetoEmString.contains("grauEsquerda")) { // CASO SEJA SO ESCURO
+            tipoOculos = new TypeToken<OculosEscuros>() {}.getType();
+            return gson.fromJson(objeto, tipoOculos);
+        }
+
+        return null;
     }
 
 
