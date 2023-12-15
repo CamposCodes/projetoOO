@@ -21,13 +21,13 @@ public class ViewEditaRemoveFuncionario extends JFrame {
         funcionarioListModel = new DefaultListModel<>();
         JList<String> funcionarioList = new JList<>(funcionarioListModel);
         JScrollPane listScrollPane = new JScrollPane(funcionarioList);
-        listScrollPane.setBounds(50, 50, 200, 500);
+        listScrollPane.setBounds(50, 50, 250, 500);
         listScrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Funcionários")); // Adiciona uma borda com título
         add(listScrollPane);
 
         formPanel = new JPanel();
         formPanel.setLayout(null);
-        formPanel.setBounds(280, 50, 550, 500);
+        formPanel.setBounds(300, 50, 550, 500);
         formPanel.setBorder(BorderFactory.createTitledBorder("Editar/Remover")); // Adiciona uma borda com título
         add(formPanel);
 

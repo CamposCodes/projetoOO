@@ -1,5 +1,4 @@
 package aula.lojaoculos.view.updates;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,14 +18,16 @@ public class ViewEditaRemoveCliente extends JFrame {
         setLayout(null);
 
         clienteListModel = new DefaultListModel<>();
-        JScrollPane listScrollPane = new JScrollPane();
-        listScrollPane.setBounds(50, 70, 200, 400);
-        
+        JList<String> clienteList = new JList<>(clienteListModel);
+        JScrollPane listScrollPane = new JScrollPane(clienteList);
+        listScrollPane.setBounds(50, 50, 250, 500);
+        listScrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Clientes")); // Adiciona uma borda com título
         add(listScrollPane);
 
         formPanel = new JPanel();
         formPanel.setLayout(null);
-        formPanel.setBounds(280, 50, 550, 500);
+        formPanel.setBounds(300, 50, 550, 500);
+        formPanel.setBorder(BorderFactory.createTitledBorder("Editar/Remover")); // Adiciona uma borda com título
         add(formPanel);
 
         addLabelToFrame("Nome:", 10, 20, 150, 30);

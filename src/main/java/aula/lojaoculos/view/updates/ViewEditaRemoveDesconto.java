@@ -23,7 +23,7 @@ public class ViewEditaRemoveDesconto extends JFrame {
 
         discountPanel = new JPanel(); // Novo painel para os descontos
         discountPanel.setLayout(new BorderLayout());
-        discountPanel.setBounds(10, 10, 300, 540); // Posição e tamanho do painel de desconto
+        discountPanel.setBounds(10, 50, 300, 500); // Posição e tamanho do painel de desconto
         discountPanel.setBorder(BorderFactory.createTitledBorder("Descontos")); // Adiciona uma borda com título
         add(discountPanel);
 
@@ -35,7 +35,7 @@ public class ViewEditaRemoveDesconto extends JFrame {
 
         formPanel = new JPanel();
         formPanel.setLayout(null);
-        formPanel.setBounds(320, 10, 570, 540); // Posição e tamanho do painel de formulário
+        formPanel.setBounds(320, 50, 570, 500); // Posição e tamanho do painel de formulário
         formPanel.setBorder(BorderFactory.createTitledBorder("Editar/Remover")); // Adiciona uma borda com título
         add(formPanel);
 
@@ -136,11 +136,5 @@ public class ViewEditaRemoveDesconto extends JFrame {
         button.setForeground(foregroundColor);
         button.setBackground(backgroundColor);
         return button;
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new ViewEditaRemoveDesconto();
-        });
     }
 }

@@ -53,6 +53,11 @@ public class ViewListagens extends JFrame {
                 new ViewEditaRemoveDesconto();
             }
         });
+        sairButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // Fecha a janela atual
+            }
+        });
 
         // Adicione os botões ao frame
         add(Box.createVerticalStrut(buttonPadding));

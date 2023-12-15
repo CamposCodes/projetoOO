@@ -1,24 +1,10 @@
 package aula.lojaoculos.view.updates;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-
 
 public class ViewEditaRemoveProduto extends JFrame {
     private DefaultListModel<String> productListModel;
-    private JPanel formPanel;
+    private JPanel formPanel, productPanel;
     private JButton editButton, removeButton;
     private JTextField modeloTextField, marcaTextField, precoTextField, corLenteTextField, grauEsquerdaTextField, grauDireitaTextField;
     private JComboBox<String> tipoLenteComboBox, polarizadoComboBox;
@@ -32,15 +18,19 @@ public class ViewEditaRemoveProduto extends JFrame {
         setLayout(null);
 
         productListModel = new DefaultListModel<>();
-        JScrollPane listScrollPane = new JScrollPane();
-        listScrollPane.setBounds(50, 70, 200, 400);
+        JList<String> productList = new JList<>(productListModel);
+        JScrollPane listScrollPane = new JScrollPane(productList);
+        listScrollPane.setBounds(50, 50, 250, 500);
+        listScrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Produtos")); // Adiciona uma borda com título
         add(listScrollPane);
 
         formPanel = new JPanel();
         formPanel.setLayout(null);
-        formPanel.setBounds(280, 50, 550, 500); // Aumento na altura do painel para acomodar os botões
+        formPanel.setBounds(100, 50, 500, 500);
         add(formPanel);
 
+        addLabelToFrame("Modelo:", 10, 20, 150, 30);
+        modeloTextField = createTextField(160, 20, 350, 30);
         addLabelToFrame("Modelo:", 10, 20, 150, 30);
         modeloTextField = createTextField(160, 20, 350, 30); // Aumento na largura do campo de texto
 
@@ -71,7 +61,7 @@ public class ViewEditaRemoveProduto extends JFrame {
         addLabelToFrame("Cor da Lente:", 10, 370, 150, 30);
         corLenteTextField = createTextField(160, 370, 350, 30);
 
-        Font labelFont = new Font("Arial", Font.PLAIN, 16); // Mudança na fonte dos rótulos
+        Font labelFont = new Font("Arial", Font.PLAIN, 16);
 
         editButton = createButton("Editar", labelFont, Color.WHITE, Color.BLACK);
         editButton.setBounds(10, 420, 200, 30);
@@ -80,6 +70,14 @@ public class ViewEditaRemoveProduto extends JFrame {
         removeButton = createButton("Remover", labelFont, Color.WHITE, Color.BLACK);
         removeButton.setBounds(230, 420, 200, 30);
         formPanel.add(removeButton);
+
+        productPanel = new JPanel();
+        productPanel.setLayout(new BorderLayout());
+        productPanel.setBounds(300, 50, 550, 500); // Posição e tamanho do painel de produtos
+        productPanel.setBorder(BorderFactory.createTitledBorder("Produtos")); // Adiciona uma borda com título
+        add(productPanel);
+
+        productPanel.add(formPanel, BorderLayout.CENTER);
 
         setVisible(true);
     }
@@ -107,5 +105,4 @@ public class ViewEditaRemoveProduto extends JFrame {
         button.setBackground(backgroundColor);
         return button;
     }
-
 }
