@@ -1,3 +1,5 @@
+package aula.lojaoculos.view.updates;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
