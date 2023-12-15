@@ -1,6 +1,4 @@
 package aula.lojaoculos.view.updates;
-import aula.lojaoculos.view.updates.ViewEditaRemoveFuncionario;
-import aula.lojaoculos.view.updates.ViewEditaRemoveProduto;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

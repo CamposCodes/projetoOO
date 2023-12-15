@@ -20,7 +20,7 @@ public class ViewEditaRemoveFuncionario extends JFrame {
 
     public ViewEditaRemoveFuncionario() {
         setTitle("Edita e Remove Vendedores");
-        setSize(900, 700); // Defina o tamanho adequado para a janela
+        setSize(900, 600); // Aumento na altura da janela para acomodar os botões   
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);

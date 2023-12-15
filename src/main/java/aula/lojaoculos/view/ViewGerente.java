@@ -3,13 +3,7 @@ import aula.lojaoculos.controller.cliente.JanelaCliente;
 import aula.lojaoculos.controller.desconto.JanelaDesconto;
 import aula.lojaoculos.controller.funcionario.JanelaFuncionario;
 import aula.lojaoculos.view.cadastros.*;
-<<<<<<< HEAD
 import aula.lojaoculos.view.updates.*;
-=======
-import aula.lojaoculos.view.updates.ViewEditaRemoveProduto;
->>>>>>> 7a5f84015b64ade97d2271bc2908a15fb8d324bc
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -36,13 +30,9 @@ public class ViewGerente extends JFrame {
         JButton cadastroDescontoButton = createButton("Cadastro de Desconto", 250, buttonPadding * 3 + buttonHeight * 2, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton cadastroProdutoButton = createButton("Cadastro de Produto", 250, buttonPadding * 4 + buttonHeight * 3, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton cadastroFuncionarioButton = createButton("Cadastro de Funcionário", 250, buttonPadding * 5 + buttonHeight * 4, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
-<<<<<<< HEAD
         JButton listagensButton = createButton("Listagens", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
-=======
-        JButton listagemProdutoButton = createButton("Listagem de Produto", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
->>>>>>> 7a5f84015b64ade97d2271bc2908a15fb8d324bc
         JButton sairButton = createButton("Sair", 250, buttonPadding * 7 + buttonHeight * 6, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
-
+        
         cadastrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,21 +75,14 @@ public class ViewGerente extends JFrame {
                 tela.desenha();
             }
         });
-<<<<<<< HEAD
+
         listagensButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ViewListagens();
-=======
-        listagemProdutoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new ViewEditaRemoveProduto();
->>>>>>> 7a5f84015b64ade97d2271bc2908a15fb8d324bc
             }
         });
         
-
 
         // Adiciona um espaço entre cada botão
         add(Box.createVerticalStrut(buttonPadding));
@@ -113,15 +96,11 @@ public class ViewGerente extends JFrame {
         add(Box.createVerticalStrut(buttonPadding));
         add(cadastroFuncionarioButton);
         add(Box.createVerticalStrut(buttonPadding));
-<<<<<<< HEAD
         add(listagensButton);
-=======
-        add(listagemProdutoButton);
->>>>>>> 7a5f84015b64ade97d2271bc2908a15fb8d324bc
+        add(listagensButton);
         add(Box.createVerticalStrut(buttonPadding));
         add(sairButton);
         add(Box.createVerticalStrut(buttonPadding));
-
         setVisible(true);
     }
 
@@ -134,6 +113,6 @@ public class ViewGerente extends JFrame {
         button.setBackground(backgroundColor);
         return button;
     }
-
-
 }
+    
+        

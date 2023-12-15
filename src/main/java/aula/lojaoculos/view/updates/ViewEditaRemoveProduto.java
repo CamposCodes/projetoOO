@@ -1,6 +1,9 @@
 package aula.lojaoculos.view.updates;
 
-<<<<<<< HEAD
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,11 +14,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-=======
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
->>>>>>> 7a5f84015b64ade97d2271bc2908a15fb8d324bc
+
 
 public class ViewEditaRemoveProduto extends JFrame {
     private DefaultListModel<String> productListModel;
