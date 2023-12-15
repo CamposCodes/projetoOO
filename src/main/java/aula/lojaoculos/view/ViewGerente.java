@@ -4,6 +4,7 @@ import aula.lojaoculos.controller.desconto.JanelaDesconto;
 import aula.lojaoculos.controller.funcionario.JanelaFuncionario;
 import aula.lojaoculos.view.cadastros.*;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -30,7 +31,8 @@ public class ViewGerente extends JFrame {
         JButton cadastroDescontoButton = createButton("Cadastro de Desconto", 250, buttonPadding * 3 + buttonHeight * 2, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton cadastroProdutoButton = createButton("Cadastro de Produto", 250, buttonPadding * 4 + buttonHeight * 3, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton cadastroFuncionarioButton = createButton("Cadastro de Funcionário", 250, buttonPadding * 5 + buttonHeight * 4, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
-        JButton sairButton = createButton("Sair", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+        JButton editaProdutoButton = createButton("Editar Produtos", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+        JButton sairButton = createButton("Sair", 250, buttonPadding * 7 + buttonHeight * 6, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
 
         cadastrarClienteButton.addActionListener(new ActionListener() {
             @Override
@@ -74,6 +76,12 @@ public class ViewGerente extends JFrame {
                 tela.desenha();
             }
         });
+        editaProdutoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //new ViewEditaRemoveProduto();
+            }
+        });
         
 
 
@@ -88,6 +96,8 @@ public class ViewGerente extends JFrame {
         add(cadastroProdutoButton);
         add(Box.createVerticalStrut(buttonPadding));
         add(cadastroFuncionarioButton);
+        add(Box.createVerticalStrut(buttonPadding));
+        add(editaProdutoButton);
         add(Box.createVerticalStrut(buttonPadding));
         add(sairButton);
         add(Box.createVerticalStrut(buttonPadding));
