@@ -1,4 +1,4 @@
-  package aula.lojaoculos.view.cadastros;
+package aula.lojaoculos.view.cadastros;
 
 import aula.lojaoculos.controller.cliente.CadastrarCliente;
 import aula.lojaoculos.controller.cliente.JanelaCliente;

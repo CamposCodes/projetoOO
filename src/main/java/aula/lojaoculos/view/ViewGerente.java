@@ -3,6 +3,7 @@ import aula.lojaoculos.controller.cliente.JanelaCliente;
 import aula.lojaoculos.controller.desconto.JanelaDesconto;
 import aula.lojaoculos.controller.funcionario.JanelaFuncionario;
 import aula.lojaoculos.view.cadastros.*;
+import aula.lojaoculos.view.updates.*;
 
 
 import javax.swing.*;
@@ -31,7 +32,7 @@ public class ViewGerente extends JFrame {
         JButton cadastroDescontoButton = createButton("Cadastro de Desconto", 250, buttonPadding * 3 + buttonHeight * 2, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton cadastroProdutoButton = createButton("Cadastro de Produto", 250, buttonPadding * 4 + buttonHeight * 3, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton cadastroFuncionarioButton = createButton("Cadastro de Funcionário", 250, buttonPadding * 5 + buttonHeight * 4, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
-        JButton editaProdutoButton = createButton("Editar Produtos", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
+        JButton listagensButton = createButton("Listagens", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton sairButton = createButton("Sair", 250, buttonPadding * 7 + buttonHeight * 6, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
 
         cadastrarClienteButton.addActionListener(new ActionListener() {
@@ -76,10 +77,10 @@ public class ViewGerente extends JFrame {
                 tela.desenha();
             }
         });
-        editaProdutoButton.addActionListener(new ActionListener() {
+        listagensButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //new ViewEditaRemoveProduto();
+                new ViewListagens();
             }
         });
         
@@ -97,7 +98,7 @@ public class ViewGerente extends JFrame {
         add(Box.createVerticalStrut(buttonPadding));
         add(cadastroFuncionarioButton);
         add(Box.createVerticalStrut(buttonPadding));
-        add(editaProdutoButton);
+        add(listagensButton);
         add(Box.createVerticalStrut(buttonPadding));
         add(sairButton);
         add(Box.createVerticalStrut(buttonPadding));
