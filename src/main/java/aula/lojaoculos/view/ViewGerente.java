@@ -1,5 +1,8 @@
 package aula.lojaoculos.view;
+import aula.lojaoculos.controller.cliente.JanelaCliente;
+import aula.lojaoculos.controller.desconto.JanelaDesconto;
 import aula.lojaoculos.controller.funcionario.JanelaFuncionario;
+import aula.lojaoculos.view.cadastros.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +36,7 @@ public class ViewGerente extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ViewCadastraCliente tela = new ViewCadastraCliente();
-//                tela.addWindowListener(new JanelaFuncionario(tela));
+                tela.addWindowListener(new JanelaCliente(tela));
                 tela.desenha();
             }
         });
@@ -41,8 +44,8 @@ public class ViewGerente extends JFrame {
         cadastroDescontoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViewCadastraCliente tela = new ViewCadastraCliente();
-//                tela.addWindowListener(new JanelaFuncionario(tela));
+                ViewCadastraDesconto tela = new ViewCadastraDesconto();
+                tela.addWindowListener(new JanelaDesconto(tela));
                 tela.desenha();
             }
         });
@@ -51,28 +54,24 @@ public class ViewGerente extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ViewCadastraVenda();
-            }
-        });
-
-        cadastroDescontoButton.addActionListener(new ActionListener() { //TODO: CRIAR VIEW DE CADASTRO DE DESCONTO
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new ViewCadastraDesconto();
+                //    tela.addWindowListener(new JanelaFuncionario(tela));
+                //    tela.desenha();
             }
         });
 
         cadastroProdutoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraProduto(); // TODO: CRIAR SUBJANELAS PARA OS PRODUTOS
+                new ViewCadastraProduto();
             }
         });
 
         cadastroFuncionarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraFuncionario();  
-                
+                ViewCadastraFuncionario tela = new ViewCadastraFuncionario();
+                tela.addWindowListener(new JanelaFuncionario(tela));
+                tela.desenha();
             }
         });
         
