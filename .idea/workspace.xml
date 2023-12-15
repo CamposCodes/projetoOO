@@ -5,9 +5,121 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd3b121e-b127-4418-af82-01f43d3d4f21" name="Changes" comment="Fixed &quot;Funcionario&quot; registering">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clientes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/clientes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/funcionarios.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/funcionarios.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/oculos.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/oculos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Oculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Oculos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosEscuros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosEscuros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosGrau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosGrau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosGrauEscuro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/OculosGrauEscuro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/model/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/ViewGerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/updates/ViewEditaRemoveProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/updates/ViewEditaRemoveProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewAdicionaProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewAdicionaProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewCadastraVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/cadastros/ViewCadastraVenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/updates/ViewEditaremoveCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aula/lojaoculos/view/updates/ViewEditaRemoveCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LojaOculos-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ViewAdicionaProduto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/LojaOculos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/cliente/CadastrarCliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/cliente/JanelaCliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/desconto/CadastrarDesconto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/desconto/JanelaDesconto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/funcionario/CadastrarFuncionario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/funcionario/JanelaFuncionario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/produto/oculosEscuro/JanelaOculosEscuro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/produto/oculosEscuro/RegistrarOculosEscuro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/produto/oculosEscuroGrau/JanelaOculosEscuroGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/produto/oculosEscuroGrau/RegistrarOculosEscuroGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/produto/oculosGrau/JanelaOculosGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/controller/produto/oculosGrau/RegistrarOculosGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/CampoVazioException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/CpfException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/DataException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/EmailException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/FormatoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/JaCadastradoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/NaoEncontradoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/NomeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/PrecoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/exceptions/TelefoneException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Cashback.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Cupom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/DadosDeCodigos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Desconto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Funcionario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Oculos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/OculosEscuros.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/OculosGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/OculosGrauEscuro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Pessoa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/model/Venda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/Arquivo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/ClientePersistence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/ClientePersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DadosDeCodigosPersistence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DadosDeCodigosPersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DescontoPersistence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DescontoPersistence$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/DescontoPersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/FuncionarioPersistence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/FuncionarioPersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/OculosPersistence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/OculosPersistence$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/OculosPersistence$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/OculosPersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/Persistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/VendaPersistence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/persistence/VendaPersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/Interface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewGerente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/ViewVendedor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewAdicionaProduto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraCliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraDesconto$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraDesconto$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraDesconto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraFuncionario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraProduto$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraProduto$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraProduto$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraProduto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraVenda$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewCadastraVenda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewOculosEscuros.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewOculosEscurosGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/cadastros/ViewOculosGrau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewEditaRemoveDesconto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewEditaRemoveFuncionario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewEditaRemoveProduto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewEditaremoveCliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewListagens$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewListagens$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewListagens$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewListagens$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewListagens$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aula/lojaoculos/view/updates/ViewListagens.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +189,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;LucasMartins&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/projetoOO/src/main/java/aula/lojaoculos/controller/produto/oculosGrau&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Abner/Documents/GitHub/AgendaExemplo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -89,6 +201,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Abner\Documents\GitHub\projetoOO\src\main\java\aula\lojaoculos\controller\venda" />
       <recent name="D:\projetoOO\src\main\java\aula\lojaoculos\controller\produto\oculosGrau" />
       <recent name="D:\projetoOO\src\main\java\aula\lojaoculos\controller\produto\oculosEscuroGrau" />
     </key>
@@ -114,6 +227,10 @@
       <workItem from="1702476157616" duration="890000" />
       <workItem from="1702478189430" duration="18462000" />
       <workItem from="1702647523225" duration="251000" />
+      <workItem from="1702665088650" duration="82000" />
+      <workItem from="1702665198304" duration="325000" />
+      <workItem from="1702666721680" duration="9962000" />
+      <workItem from="1702677451520" duration="661000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;pequena correção nos arquivos iniciais&quot;">
       <option name="closed" value="true" />
@@ -277,6 +394,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;pequena correção nos arquivos iniciais&quot;" />
     <MESSAGE value="Implementação classes principais" />
@@ -313,24 +441,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/controller/produto/oculosEscuro/JanelaOculosEscuro.java</url>
-          <line>28</line>
-          <properties class="aula.lojaoculos.controller.produto.oculosEscuro.JanelaOculosEscuro" method="windowClosing">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/DescontoPersistence.java</url>
-          <line>47</line>
-          <properties class="aula.lojaoculos.persistence.DescontoPersistence" method="retornaObjetoDesconto">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/aula/lojaoculos/persistence/DescontoPersistence.java</url>
