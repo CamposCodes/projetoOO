@@ -1,12 +1,9 @@
 package aula.lojaoculos.controller.item;
 
-import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.model.Oculos;
-import aula.lojaoculos.persistence.FuncionarioPersistence;
 import aula.lojaoculos.persistence.OculosPersistence;
 import aula.lojaoculos.persistence.Persistence;
 import aula.lojaoculos.view.cadastros.ViewAdicionaProduto;
-import aula.lojaoculos.view.cadastros.ViewCadastraFuncionario;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

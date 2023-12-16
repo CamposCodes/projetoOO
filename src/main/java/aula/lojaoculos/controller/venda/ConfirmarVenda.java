@@ -1,7 +1,6 @@
 package aula.lojaoculos.controller.venda;
 
 import aula.lojaoculos.exceptions.CampoVazioException;
-import aula.lojaoculos.view.cadastros.ViewCadastraFuncionario;
 import aula.lojaoculos.view.cadastros.ViewCadastraVenda;
 
 import javax.swing.*;

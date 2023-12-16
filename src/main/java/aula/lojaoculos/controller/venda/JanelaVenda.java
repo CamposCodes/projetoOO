@@ -6,7 +6,6 @@ import aula.lojaoculos.model.Desconto;
 import aula.lojaoculos.model.Funcionario;
 import aula.lojaoculos.model.Venda;
 import aula.lojaoculos.persistence.*;
-import aula.lojaoculos.view.cadastros.ViewCadastraFuncionario;
 import aula.lojaoculos.view.cadastros.ViewCadastraVenda;
 
 import java.awt.event.WindowEvent;
