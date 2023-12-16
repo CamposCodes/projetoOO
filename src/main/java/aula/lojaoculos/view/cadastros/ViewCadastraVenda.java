@@ -4,6 +4,7 @@ import aula.lojaoculos.controller.item.JanelaItem;
 import aula.lojaoculos.controller.venda.*;
 import aula.lojaoculos.exceptions.CampoVazioException;
 import aula.lojaoculos.exceptions.NaoEncontradoException;
+import aula.lojaoculos.exceptions.ValorMinimoException;
 import aula.lojaoculos.model.*;
 import aula.lojaoculos.persistence.ClientePersistence;
 import aula.lojaoculos.persistence.VendaPersistence;
@@ -279,7 +280,12 @@ public class ViewCadastraVenda extends JFrame {
         String descontoGenericoNome = descontoSelecionadoAux.getClass().getSimpleName();
 
         if(descontoGenericoNome.equals("Cupom")){
-            Double precoComDesconto = descontoSelecionadoAux.calculaDesconto(precoFinal);
+            Double precoComDesconto = null;
+            try {
+                precoComDesconto = descontoSelecionadoAux.calculaDesconto(precoFinal);
+            } catch (ValorMinimoException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
+            }
 
             if(precoComDesconto < 0.){
                 precoComDesconto = 0.0;
@@ -369,7 +375,12 @@ public class ViewCadastraVenda extends JFrame {
             String descontoGenericoNome = descontoSelecionadoAux.getClass().getSimpleName();
 
             if(descontoGenericoNome.equals("Cashback")){
-                Double cashback = descontoSelecionadoAux.calculaDesconto(Double.parseDouble(valorTotalTextField.getText()));
+                Double cashback = null;
+                try {
+                    cashback = descontoSelecionadoAux.calculaDesconto(Double.parseDouble(valorTotalTextField.getText()));
+                } catch (ValorMinimoException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
+                }
 
                 JOptionPane.showMessageDialog(null,"O cliente ganhará R$"+ cashback + " em créditos com essa compra!" );
 
