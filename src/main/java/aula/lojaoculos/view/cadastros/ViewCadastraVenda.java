@@ -25,6 +25,7 @@ public class ViewCadastraVenda extends JFrame {
 
     private List<Desconto> listaDescontos;
     private List<Cliente> listaClientes;
+    private List<Item> listaItens;
 
     private Desconto descontoSelecionadoAux;
     private List<Venda> listaVendas;
@@ -400,8 +401,10 @@ public class ViewCadastraVenda extends JFrame {
         Funcionario vendedor = funcionarioList.getSelectedValue();
         Cliente cliente = clienteList.getSelectedValue();
         String codigoDesconto = codigoCupomTextField.getText();
-        listaVendas.add(new Venda(valorTotal, vendedor, cliente, codigoDesconto, creditosCliente, 0));
 
+        DefaultListModel<Item> itemModel = (DefaultListModel<Item>) itemList.getModel();
+
+        listaVendas.add(new Venda(valorTotal, vendedor, cliente, codigoDesconto, creditosCliente,0));
         vendaPersistence.save(listaVendas);
         this.dispose();
     }

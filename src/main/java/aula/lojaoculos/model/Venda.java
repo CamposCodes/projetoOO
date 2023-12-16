@@ -21,6 +21,11 @@ public class Venda {
         this.itens = itens;
     }
 
+    @Override
+    public String toString() {
+        return "R$" + valor + " codigo: " + codigo + " - vendedor: " + vendedor.getNome();
+    }
+
     public Funcionario getVendedor() {
         return vendedor;
     }
