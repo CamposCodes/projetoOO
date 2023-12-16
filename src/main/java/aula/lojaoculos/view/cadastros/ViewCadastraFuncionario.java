@@ -124,7 +124,7 @@ public class ViewCadastraFuncionario extends JFrame {
         String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         String regexNome = "^[A-Za-z ]+$";
         String regexTelefone = "^\\(\\d{2}\\)\\d{4,5}-\\d{4}$";
-        String regexDataNascimento = "^\\d{2}/\\d{2}/\\d{4}$"; // Formato dd/MM/yyyy
+        String regexDataNascimento = "^\\d{2}/\\d{1,2}/\\d{4}$"; // Formato dd/MM/yyyy
         Pattern patternEmail = Pattern.compile(regexEmail);
         Pattern patternNome = Pattern.compile(regexNome);
         Pattern patternTelefone = Pattern.compile(regexTelefone);
