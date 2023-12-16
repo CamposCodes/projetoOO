@@ -6,7 +6,6 @@ public class LojaOculos {
 
     public static void main(String[] args) {
 
-        //inicializa telas
         new Interface();
 
     }

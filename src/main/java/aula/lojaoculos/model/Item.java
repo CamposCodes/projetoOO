@@ -1,18 +1,13 @@
 package aula.lojaoculos.model;
 
 public class Item {
-    double custoUnitario;
-    int quantidade;
-    double total;
-    Oculos produto;
+    private double custoUnitario;
+    private int quantidade;
+    private double total;
+    private Oculos produto;
 
     public Oculos getProduto() {
         return produto;
-    }
-
-    @Override
-    public String toString() {
-        return produto.getModelo();
     }
 
     public Item(double custoUnitario, int quantidade, double total, Oculos produto) {
@@ -20,6 +15,11 @@ public class Item {
         this.quantidade = quantidade;
         this.total = total;
         this.produto = produto;
+    }
+
+    @Override
+    public String toString() {
+        return produto.getMarca() + " / " + produto.getModelo() + " - Preço: R$" + produto.getPreco() + " - Qtd: " + quantidade + " = R$" + total;
     }
 
     public double getCustoUnitario() {
