@@ -9,7 +9,7 @@ public class Funcionario extends Pessoa {
     private String cargo;
     private final int codigo;
     private final String login;
-    private final String senha;
+    private String senha;
 
     public String getCargo() {
         return cargo;
@@ -42,5 +42,13 @@ public class Funcionario extends Pessoa {
     @Override
     public String toString() {
         return this.nome;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
