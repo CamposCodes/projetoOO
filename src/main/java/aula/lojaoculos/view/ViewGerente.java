@@ -42,6 +42,13 @@ public class ViewGerente extends JFrame {
                 tela.desenha();
             }
         });
+
+        sairButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
         
         cadastroDescontoButton.addActionListener(new ActionListener() {
             @Override

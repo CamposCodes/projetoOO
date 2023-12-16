@@ -1,5 +1,7 @@
 package aula.lojaoculos.view;
 
+import aula.lojaoculos.controller.cliente.JanelaCliente;
+import aula.lojaoculos.controller.venda.JanelaVenda;
 import aula.lojaoculos.view.cadastros.ViewCadastraCliente;
 import aula.lojaoculos.view.cadastros.ViewCadastraVenda;
 
@@ -31,14 +33,18 @@ public class ViewVendedor extends JFrame {
         cadastrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraCliente().desenha();
+                ViewCadastraCliente tela = new ViewCadastraCliente();
+                tela.addWindowListener(new JanelaCliente(tela));
+                tela.desenha();
             }
         });
 
         cadastrarVendaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewCadastraVenda();
+                ViewCadastraVenda tela = new ViewCadastraVenda();
+                tela.addWindowListener(new JanelaVenda(tela));
+                tela.desenha();
             }
         });
 

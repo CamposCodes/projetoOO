@@ -1,5 +1,11 @@
 package aula.lojaoculos.view.updates;
 
+import aula.lojaoculos.controller.cliente.JanelaEditaCliente;
+import aula.lojaoculos.controller.desconto.JanelaEditaDesconto;
+import aula.lojaoculos.controller.funcionario.JanelaEditaFuncionario;
+import aula.lojaoculos.controller.produto.JanelaEditaProduto;
+import aula.lojaoculos.controller.venda.JanelaEditaVenda;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -28,39 +34,53 @@ public class ViewListagens extends JFrame {
         JButton atualizaVendasButton = createButton("Atualiza Vendas", 250, buttonPadding * 5 + buttonHeight * 4, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
         JButton sairButton = createButton("Sair", 250, buttonPadding * 6 + buttonHeight * 5, buttonWidth, buttonHeight, buttonFont, foregroundColor, backgroundColor);
 
-        // Adicione aqui a lógica para as ações dos botões, por exemplo:
         atualizaProdutosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewEditaRemoveProduto();
+
+                ViewEditaRemoveProduto tela = new ViewEditaRemoveProduto();
+                tela.addWindowListener(new JanelaEditaProduto(tela));
+                tela.desenha();
             }
         });
         atualizaFuncionariosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewEditaRemoveFuncionario();
+
+                ViewEditaRemoveFuncionario tela = new ViewEditaRemoveFuncionario();
+                tela.addWindowListener(new JanelaEditaFuncionario(tela));
+                tela.desenha();
             }
         });
         atualizaClientesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewEditaRemoveCliente();
+                ViewEditaRemoveCliente tela = new ViewEditaRemoveCliente();
+                tela.addWindowListener(new JanelaEditaCliente(tela));
+                tela.desenha();
             }
         });
         atualizaDescontosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewEditaRemoveDesconto();
+
+                ViewEditaRemoveDesconto tela = new ViewEditaRemoveDesconto();
+                tela.addWindowListener(new JanelaEditaDesconto(tela));
+                tela.desenha();
             }
         });
+
+        atualizaVendasButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ViewEditaRemoveVenda tela = new ViewEditaRemoveVenda();
+                tela.addWindowListener(new JanelaEditaVenda(tela));
+                tela.desenha();
+            }
+        });
+
         sairButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose(); // Fecha a janela atual
-            }
-        });
-        atualizaVendasButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new ViewEditaRemoveVenda();
             }
         });
 
