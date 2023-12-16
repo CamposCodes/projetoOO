@@ -17,7 +17,7 @@ public class ViewAdicionaProduto extends JFrame {
 
     private DefaultListModel<Oculos> produtoListModel;
     private JPanel formPanel, produtoPanel;
-    private JTextField modeloTextField, marcaTextField, precoTextField, corLenteTextField, grauEsquerdaTextField, grauDireitaTextField, valorTotalTextField, quantidadeTextField, tipoLenteTextField, polarizadoTextField;;
+    private JTextField modeloTextField, marcaTextField, precoTextField, corLenteTextField, grauEsquerdaTextField, grauDireitaTextField, valorTotalTextField, quantidadeTextField, tipoLenteTextField, polarizadoTextField;
     private JButton adicionarButton;
 
     private ViewCadastraVenda telaVenda;
