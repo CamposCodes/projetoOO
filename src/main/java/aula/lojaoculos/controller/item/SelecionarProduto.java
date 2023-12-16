@@ -1,7 +1,6 @@
 package aula.lojaoculos.controller.item;
 
 import aula.lojaoculos.view.cadastros.ViewAdicionaProduto;
-import aula.lojaoculos.view.cadastros.ViewCadastraVenda;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;

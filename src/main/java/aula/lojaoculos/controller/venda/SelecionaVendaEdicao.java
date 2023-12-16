@@ -1,6 +1,5 @@
 package aula.lojaoculos.controller.venda;
 
-import aula.lojaoculos.view.updates.ViewEditaRemoveCliente;
 import aula.lojaoculos.view.updates.ViewEditaRemoveVenda;
 
 import javax.swing.event.ListSelectionEvent;
