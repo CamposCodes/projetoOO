@@ -1,5 +1,7 @@
 package aula.lojaoculos.model;
 
+import aula.lojaoculos.exceptions.ValorMinimoException;
+
 public abstract class Desconto {
 
     protected String codigo;
@@ -16,5 +18,7 @@ public abstract class Desconto {
     public Desconto(String codigo) {
         this.codigo = codigo;
     }
-    public abstract double calculaDesconto(double valor);
+    public abstract double calculaDesconto(double valor) throws ValorMinimoException;
+
+    public abstract String getTipo();
 }
