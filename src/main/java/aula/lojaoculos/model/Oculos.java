@@ -13,6 +13,7 @@ public abstract class Oculos {
         return modelo;
     }
 
+    public abstract String getTipo();
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
