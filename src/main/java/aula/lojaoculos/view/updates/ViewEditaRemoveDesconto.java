@@ -1,20 +1,42 @@
 package aula.lojaoculos.view.updates;
 
+import aula.lojaoculos.controller.desconto.EditaDesconto;
+import aula.lojaoculos.controller.desconto.RemoveDesconto;
+import aula.lojaoculos.controller.desconto.SelecionaDescontoEdicao;
+import aula.lojaoculos.exceptions.CampoVazioException;
+import aula.lojaoculos.exceptions.FormatoException;
+import aula.lojaoculos.model.Cashback;
+import aula.lojaoculos.model.Cliente;
+import aula.lojaoculos.model.Cupom;
+import aula.lojaoculos.model.Desconto;
+import aula.lojaoculos.persistence.DescontoPersistence;
+
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.border.EmptyBorder;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ViewEditaRemoveDesconto extends JFrame {
     private JTextField codigoText, porcentagemText, valorText, valorMinimoText;
-    private JRadioButton cashbackRadio, cupomRadio;
     private JPanel formPanel, discountPanel; // Adição de um novo painel para descontos
     private JLabel codigoLabel, porcentagemLabel, valorLabel, valorMinimoLabel;
-    private JList<String> descontosList; // Lista para exibir os descontos cadastrados
+    private JList<Desconto> descontosJList; // Lista para exibir os descontos cadastrados
 
-    private ButtonGroup buttonGroup;
+    private DescontoPersistence descontoPersistence = new DescontoPersistence();
+
+    private List<Desconto> listaDescontos;
+
 
     public ViewEditaRemoveDesconto() {
-        setTitle("Edita e Remove Descontos");
+
+    }
+
+    public void desenha(){setTitle("Edita e Remove Descontos");
         setSize(900, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -28,8 +50,10 @@ public class ViewEditaRemoveDesconto extends JFrame {
         add(discountPanel);
 
         // Adicionando a lista de descontos ao novo painel à esquerda
-        descontosList = new JList<>(new String[]{"Desconto 1", "Desconto 2", "Desconto 3"}); // Substitua com seus próprios dados
-        JScrollPane scrollPane = new JScrollPane(descontosList);
+        DefaultListModel<Desconto> descontoDefaultListModel = new DefaultListModel<>();
+        descontosJList = new JList<>(descontoDefaultListModel); // Substitua com seus próprios dados
+        descontosJList.addListSelectionListener(new SelecionaDescontoEdicao(this));
+        JScrollPane scrollPane = new JScrollPane(descontosJList);
         scrollPane.setPreferredSize(new Dimension(280, 500)); // Ajuste o tamanho conforme necessário
         discountPanel.add(scrollPane);
 
@@ -39,26 +63,13 @@ public class ViewEditaRemoveDesconto extends JFrame {
         formPanel.setBorder(BorderFactory.createTitledBorder("Editar/Remover")); // Adiciona uma borda com título
         add(formPanel);
 
-        JLabel tipoLabel = new JLabel("Tipo de Desconto:");
-        tipoLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        tipoLabel.setBounds(20, 30, 200, 30);
-        formPanel.add(tipoLabel);
-
-        cashbackRadio = createRadioButton("Cashback", 20, 70, 100, 30);
-        cupomRadio = createRadioButton("Cupom", 150, 70, 100, 30);
-
-        buttonGroup = new ButtonGroup();
-        buttonGroup.add(cashbackRadio);
-        buttonGroup.add(cupomRadio);
-        formPanel.add(cashbackRadio);
-        formPanel.add(cupomRadio);
-
         codigoLabel = new JLabel("Código do Desconto:");
         codigoLabel.setBounds(50, 120, 200, 30);
         codigoLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         formPanel.add(codigoLabel);
 
         codigoText = createTextField(260, 120, 170, 30);
+        codigoText.setEditable(false);
 
         porcentagemLabel = new JLabel("Porcentagem Cashback:");
         porcentagemLabel.setBounds(50, 170, 250, 30);
@@ -82,19 +93,19 @@ public class ViewEditaRemoveDesconto extends JFrame {
         valorMinimoText = createTextField(260, 270, 250, 30);
 
         // Botões editar e remover
+
         JButton editarButton = createButton("Editar", new Font("Arial", Font.PLAIN, 16), Color.WHITE, Color.BLACK);
+        editarButton.addActionListener(new EditaDesconto(this));
+
         editarButton.setBounds(10, 420, 200, 30);
         formPanel.add(editarButton);
 
         JButton removerButton = createButton("Remover", new Font("Arial", Font.PLAIN, 16), Color.WHITE, Color.BLACK);
+        removerButton.addActionListener(new RemoveDesconto(this));
         removerButton.setBounds(230, 420, 200, 30);
         formPanel.add(removerButton);
 
-        cashbackRadio.addActionListener(e -> showCashbackFields());
-        cupomRadio.addActionListener(e -> showCupomFields());
-
-        setVisible(true);
-    }
+        setVisible(true);}
 
     private void showCashbackFields() {
         valorLabel.setVisible(false);
@@ -136,5 +147,135 @@ public class ViewEditaRemoveDesconto extends JFrame {
         button.setForeground(foregroundColor);
         button.setBackground(backgroundColor);
         return button;
+    }
+
+    public void importaDesconto(List<Desconto> all) {
+        DefaultListModel<Desconto> modelDesconto = (DefaultListModel<Desconto>)descontosJList.getModel();
+
+        for (Desconto c: all) {
+            modelDesconto.addElement(c);
+        }
+
+        if(all == null){
+            this.listaDescontos = new ArrayList<Desconto>();
+        }else{
+            this.listaDescontos = all;
+        }
+    }
+
+    public List<Desconto> listaDescontos() {
+        DefaultListModel<Desconto> model = (DefaultListModel<Desconto>)descontosJList.getModel();
+        List<Desconto> descontos = new ArrayList<Desconto>();
+
+        for (int i = 0; i < model.size(); i++) {
+            descontos.add(model.get(i));
+        }
+
+        return descontos;
+    }
+
+    public void atualizaFormulario() {
+        if(descontosJList.getSelectedIndex() != -1){
+            limpaCampos();
+            String tipoDesconto = descontosJList.getSelectedValue().getTipo();
+
+            if(tipoDesconto.equals("Cashback")){
+                Cashback desconto = (Cashback) descontosJList.getSelectedValue();
+                showCashbackFields();
+                codigoText.setText(desconto.getCodigo());
+                porcentagemText.setText(Double.toString(desconto.getPorcentagem()));
+            }else {
+                Cupom desconto = (Cupom) descontosJList.getSelectedValue();
+                showCupomFields();
+                codigoText.setText(desconto.getCodigo());
+                valorText.setText(Double.toString(desconto.getValorDoCupom()));
+                valorMinimoText.setText(Double.toString(desconto.getValorMinimoUso()));
+            }
+        }
+    }
+
+    private boolean validarCampos() throws Exception {
+
+        String codigo = codigoText.getText();
+
+        String regexNumeros = "\\d+.\\d{2}";
+
+        Pattern patternNumeros = Pattern.compile(regexNumeros);
+
+        Matcher porcentagemMatcher = patternNumeros.matcher(porcentagemText.getText());
+        Matcher valorMatcher = patternNumeros.matcher(valorText.getText());
+        Matcher valorMinimoMatcher = patternNumeros.matcher(valorMinimoText.getText());
+
+        if(descontosJList.getSelectedValue().getTipo().equals("Cashback")){
+
+            if(!porcentagemMatcher.matches()){
+                throw new FormatoException("O valor da porcentagem deve estar no formato: dd.dd");
+            }
+        } else if(descontosJList.getSelectedValue().getTipo().equals("Cupom")){
+
+
+            if(!valorMatcher.matches()){
+                throw new FormatoException("O valor deve estar no formato: dd.dd");
+            }
+
+            if(!valorMinimoMatcher.matches()){
+                throw new FormatoException("O valor mínimo deve estar no formato: dd.dd");
+            }
+        }
+
+        return true;
+    }
+
+    public void editaDesconto() {
+        try {
+            if(validarCampos()){
+
+                int selectedIndex = descontosJList.getSelectedIndex();
+
+                DefaultListModel<Desconto> model = (DefaultListModel<Desconto>) descontosJList.getModel();
+
+                if(descontosJList.getSelectedValue().getTipo().equals("Cashback")){
+                    Cashback desconto = (Cashback) model.get(selectedIndex);
+                    Double porcentagem = Double.parseDouble(porcentagemText.getText());
+                    desconto.setPorcentagem(porcentagem);
+                    model.remove(selectedIndex);
+                    model.add(selectedIndex, desconto);
+                }else {
+                    Cupom desconto = (Cupom) model.get(selectedIndex);
+                    Double valor = Double.parseDouble(valorText.getText());
+                    Double valorMinimo = Double.parseDouble(valorMinimoText.getText());
+                    desconto.setValorDoCupom(valor);
+                    desconto.setValorMinimoUso(valorMinimo);
+                    model.remove(selectedIndex);
+                    model.add(selectedIndex, desconto);
+                }
+
+
+                listaDescontos();
+                JOptionPane.showMessageDialog(null,"As alterações foram aplicadas!");
+                descontoPersistence.save(this.listaDescontos);
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void removeDesconto() {
+        if(descontosJList.getSelectedIndex() != -1){
+            DefaultListModel<Desconto> model = (DefaultListModel<Desconto>)descontosJList.getModel();
+            model.remove(descontosJList.getSelectedIndex());
+
+            listaDescontos = listaDescontos();
+            descontoPersistence.save(listaDescontos);
+        }
+        limpaCampos();
+    }
+
+    private void limpaCampos(){
+        codigoText.setText(null);
+        porcentagemText.setText(null);
+        valorText.setText(null);
+        valorMinimoText.setText(null);
     }
 }
