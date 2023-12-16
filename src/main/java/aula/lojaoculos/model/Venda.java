@@ -2,33 +2,71 @@ package aula.lojaoculos.model;
 
 import aula.lojaoculos.persistence.DadosDeCodigosPersistence;
 
-import java.util.Date;
 import java.lang.String;
 import java.util.List;
 
 
 public class Venda {
     private double valor;
-    private Date dataTransacao;
-    private int nPrestracoes;
     private List<Item> itens;
-    private int vendedor;
-    private int cliente;
+    private Funcionario vendedor;
+    private Cliente cliente;
     private String codigoDesconto;
-    private double valorDesconto;
+
+    public List<Item> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
+
+    public Funcionario getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Funcionario vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setCodigoDesconto(String codigoDesconto) {
+        this.codigoDesconto = codigoDesconto;
+    }
+
+    public double getCreditosCliente() {
+        return creditosCliente;
+    }
+
+    public void setCreditosCliente(double creditosCliente) {
+        this.creditosCliente = creditosCliente;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     private double creditosCliente;
     private int codigo;
 
-    public Venda(double valor, Date dataTransacao, int nPrestracoes, int codigo, int vendedor, int cliente, String codigoDesconto, double valorDesconto, double credtiosCliente) {
+    public Venda(double valor, Funcionario vendedor, Cliente cliente, String codigoDesconto, double creditosCliente, int codigo) {
         this.valor = valor;
-        this.dataTransacao = dataTransacao;
-        this.nPrestracoes = nPrestracoes;
         this.codigo = codigo;
         this.vendedor = vendedor;
         this.cliente = cliente;
         this.codigoDesconto = codigoDesconto;
-        this.valorDesconto = valorDesconto;
-        this.creditosCliente = credtiosCliente;
+        this.creditosCliente = creditosCliente;
         DadosDeCodigosPersistence persistence = new DadosDeCodigosPersistence();
         DadosDeCodigos codigos = persistence.get();
         codigo = codigos.getCodigoFuncionario();
@@ -43,23 +81,6 @@ public class Venda {
     public void setValor(double valor) {
         this.valor = valor;
     }
-
-    public Date getDataTransacao() {
-        return dataTransacao;
-    }
-
-    public void setDatatransacao(Date dataTransacao) {
-        this.dataTransacao = dataTransacao;
-    }
-
-    public int getNprestracoes() {
-        return nPrestracoes;
-    }
-
-    public void setNprestracoes(int nPrestracoes) {
-        this.nPrestracoes = nPrestracoes;
-    }
-
     public int getIdentificador() {
         return codigo;
     }
@@ -68,36 +89,12 @@ public class Venda {
         this.codigo = identificador;
     }
 
-    public int getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(int vendedor) {
-        this.vendedor = vendedor;
-    }
-
-    public int getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(int cliente) {
-        this.cliente = cliente;
-    }
-
     public String getCodigoDesconto() {
         return codigoDesconto;
     }
 
     public void setCodigodesconto(String codigoDesconto) {
         this.codigoDesconto = codigoDesconto;
-    }
-
-    public double getValorDesconto() {
-        return valorDesconto;
-    }
-
-    public void setValorDesconto(double valorDesconto) {
-        this.valorDesconto = valorDesconto;
     }
 
     public double isCreditosCliente() {

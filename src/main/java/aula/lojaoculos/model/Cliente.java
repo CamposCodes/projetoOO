@@ -22,6 +22,10 @@ public class Cliente extends Pessoa{
         return creditosNaLoja;
     }
 
+    public void setCreditosNaLoja(double creditosNaLoja) {
+        this.creditosNaLoja = creditosNaLoja;
+    }
+
     @Override
     public String toString() {
         return this.nome;

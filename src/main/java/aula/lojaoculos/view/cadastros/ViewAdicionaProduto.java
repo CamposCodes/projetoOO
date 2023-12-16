@@ -18,7 +18,7 @@ public class ViewAdicionaProduto extends JFrame {
     private DefaultListModel<Oculos> produtoListModel;
     private JPanel formPanel, produtoPanel;
     private JTextField modeloTextField, marcaTextField, precoTextField, corLenteTextField, grauEsquerdaTextField, grauDireitaTextField, valorTotalTextField, quantidadeTextField, tipoLenteTextField, polarizadoTextField;;
-    private JButton adicionarButton, cancelarButton;
+    private JButton adicionarButton;
 
     private ViewCadastraVenda telaVenda;
 
@@ -110,8 +110,6 @@ public class ViewAdicionaProduto extends JFrame {
                     Double precoUnitario = Double.parseDouble(precoTextField.getText());
                     Double quantidade = Double.parseDouble(quantidadeTextField.getText());
                     Double precoTotal = precoUnitario * quantidade;
-
-//                    precoTotal.
 
                     valorTotalTextField.setText(Double.toString(precoTotal));
                 } catch (NumberFormatException erro){
@@ -255,5 +253,6 @@ public class ViewAdicionaProduto extends JFrame {
             telaVenda.adicionaNovoItem(new Item(custoUnitario, quantidade, total, oculos));
         }
 
+        this.dispose();
     }
 }

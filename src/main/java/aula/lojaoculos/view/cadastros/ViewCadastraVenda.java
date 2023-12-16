@@ -1,26 +1,19 @@
 package aula.lojaoculos.view.cadastros;
 
 import aula.lojaoculos.controller.item.JanelaItem;
-import aula.lojaoculos.controller.venda.AbreTelaAdiciona;
-import aula.lojaoculos.controller.venda.SelecionarCliente;
-import aula.lojaoculos.controller.venda.SelecionarFuncionario;
-import aula.lojaoculos.controller.venda.SelecionarItem;
-import aula.lojaoculos.model.Cliente;
-import aula.lojaoculos.model.Funcionario;
-import aula.lojaoculos.model.Item;
-import aula.lojaoculos.model.Oculos;
+import aula.lojaoculos.controller.venda.*;
+import aula.lojaoculos.exceptions.CampoVazioException;
+import aula.lojaoculos.exceptions.NaoEncontradoException;
+import aula.lojaoculos.model.*;
+import aula.lojaoculos.persistence.ClientePersistence;
+import aula.lojaoculos.persistence.VendaPersistence;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ViewCadastraVenda extends JFrame {
-
-//    private DefaultListModel<String> produtoListModel, clienteListModel, vendedorListModel;
-
-
 
     private JPanel formPanel;
     private JTextField modeloTextField, marcaTextField, precoTextField, valorTotalTextField, quantidadeTextField, clienteNomeTextField, clienteCpfTextField, vendedorNomeTextField, vendedorCpfTextField, codigoCupomTextField, creditosDoClienteTextField;
@@ -28,6 +21,12 @@ public class ViewCadastraVenda extends JFrame {
     private JList<Funcionario> funcionarioList;
     private JList<Item> itemList;
     private JButton confirmarButton, adicionarProdutoButton, removerItemButton, calcularTotalButton;
+
+    private List<Desconto> listaDescontos;
+    private List<Cliente> listaClientes;
+
+    private Desconto descontoSelecionadoAux;
+    private List<Venda> listaVendas;
 
     public ViewCadastraVenda() {
 
@@ -114,6 +113,7 @@ public class ViewCadastraVenda extends JFrame {
         formPanel.add(vendedorCpfLabel);
 
         codigoCupomTextField = createTextField(160, 420, 350, 30);
+        codigoCupomTextField.addActionListener(new AdicionaCupom(this));
         JLabel codigoCupomLabel = addLabelToFrame("Código de Cupom:", 10, 420, 150, 30);
         formPanel.add(codigoCupomLabel);
 
@@ -128,11 +128,13 @@ public class ViewCadastraVenda extends JFrame {
         formPanel.add(valorTotalLabel);
 
         calcularTotalButton = createButton("Calcular Total", labelFont, Color.WHITE, Color.BLACK);
+        calcularTotalButton.addActionListener(new CalculaTotal(this));
         calcularTotalButton.setBounds(335, 520, 175, 30);
         formPanel.add(calcularTotalButton);
 
         // Botões Confirmar, Adicionar Produto e Cancelar
         confirmarButton = createButton("Confirmar", labelFont, Color.WHITE, Color.BLACK);
+        confirmarButton.addActionListener(new ConfirmarVenda(this));
         confirmarButton.setEnabled(false);
         confirmarButton.setBounds(10, 570, 150, 30);
         formPanel.add(confirmarButton);
@@ -145,6 +147,7 @@ public class ViewCadastraVenda extends JFrame {
         formPanel.add(adicionarProdutoButton);
 
         removerItemButton = createButton("Remover Item", labelFont, Color.WHITE, Color.BLACK);
+        removerItemButton.addActionListener(new RemoverItem(this));
         removerItemButton.setBounds(380, 570, 150, 30);
         formPanel.add(removerItemButton);
 
@@ -175,8 +178,14 @@ public class ViewCadastraVenda extends JFrame {
         return button;
     }
 
-    public void importaListas(List<Cliente> clientes, List<Funcionario> funcionarios){
+    public void importaListas(List<Cliente> clientes, List<Funcionario> funcionarios, List<Desconto> descontos, List<Venda> vendas){
         DefaultListModel<Cliente> modelCliente = (DefaultListModel<Cliente>)clienteList.getModel();
+
+        if(descontos == null){
+            this.listaClientes = new ArrayList<Cliente>();
+        }else{
+            this.listaClientes = clientes;
+        }
 
         for (Cliente c: clientes) {
             modelCliente.addElement(c);
@@ -188,7 +197,17 @@ public class ViewCadastraVenda extends JFrame {
             modelFuncionario.addElement(f);
         }
 
+        if(descontos == null){
+            this.listaDescontos = new ArrayList<Desconto>();
+        }else{
+            this.listaDescontos = descontos;
+        }
 
+        if(vendas == null){
+            this.listaVendas = new ArrayList<Venda>();
+        }else{
+            this.listaVendas = vendas;
+        }
     }
 
     public void abreTelaItem(){
@@ -227,6 +246,153 @@ public class ViewCadastraVenda extends JFrame {
     }
 
     public void adicionaNovoItem(Item item){
+        DefaultListModel<Item> lista = (DefaultListModel<Item>) itemList.getModel();
+        lista.addElement(item);
+    }
+
+    public void calculaTotal() {
+        if(descontoSelecionadoAux == null){
+            Double precoFinal = calculaValorTotalFinal();
+
+            precoFinal = precoFinal - Double.parseDouble(creditosDoClienteTextField.getText());
+
+            if(precoFinal < 0.0){
+                precoFinal = 0.0;
+            }
+
+            if(Double.parseDouble(creditosDoClienteTextField.getText()) != 0.0){
+                JOptionPane.showMessageDialog(null,"O cliente economizará R$" + creditosDoClienteTextField.getText() +" com essa compra com seus créditos!");
+            }
+
+            this.valorTotalTextField.setText(Double.toString(precoFinal));
+        }else {
+            calculaTotalDesconto();
+        }
+
+        confirmarButton.setEnabled(true);
+    }
+
+    public void calculaTotalDesconto(){
+
+        Double precoFinal = calculaValorTotalFinal();
+
+        String descontoGenericoNome = descontoSelecionadoAux.getClass().getSimpleName();
+
+        if(descontoGenericoNome.equals("Cupom")){
+            Double precoComDesconto = descontoSelecionadoAux.calculaDesconto(precoFinal);
+
+            if(precoComDesconto < 0.){
+                precoComDesconto = 0.0;
+            }
+
+            precoFinal = precoComDesconto;
+        }
+
+        this.valorTotalTextField.setText(Double.toString(precoFinal));
 
     }
+
+    private Double calculaValorTotalFinal() {
+        Double precoFinal = 0.0;
+
+        ArrayList<Item> listaDeItens = new ArrayList<>();
+        for(int i = 0; i< itemList.getModel().getSize();i++){
+            listaDeItens.add(itemList.getModel().getElementAt(i));
+        }
+
+        for (Item item: listaDeItens) {
+            precoFinal += item.getTotal();
+        }
+
+        return precoFinal;
+    }
+
+    public void removeItem() {
+        try {
+            DefaultListModel<Item> lista = (DefaultListModel<Item>) itemList.getModel();
+            lista.remove(itemList.getSelectedIndex());
+            limpaCamposOculos();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Selecione um item antes de remover!", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private void limpaCamposOculos(){
+        modeloTextField.setText(null);
+        marcaTextField.setText(null);
+        precoTextField.setText(null);
+        quantidadeTextField.setText(null);
+    }
+
+
+    public void adicionaCupom() throws NaoEncontradoException {
+        for (Desconto desconto: listaDescontos) {
+            if(desconto.getCodigo().equals(codigoCupomTextField.getText())){
+                descontoSelecionadoAux = desconto;
+                JOptionPane.showMessageDialog(null,"Cupom aplicado!");
+                calculaTotal();
+                return;
+            }
+        }
+
+        throw new NaoEncontradoException("Cupom não encontrado!");
+
+    }
+
+    public void confirmarVenda() throws CampoVazioException {
+        if(clienteList.getSelectedIndex() == -1){
+            throw new CampoVazioException("O cliente não pode ser vazio!");
+        }
+
+        if(funcionarioList.getSelectedIndex() == -1){
+            throw new CampoVazioException("O funcionário não pode ser vazio!");
+        }
+
+        if(itemList.getModel().getSize() == 0){
+            throw new CampoVazioException("A lista de itens não pode estar vazia!");
+        }
+
+        if(valorTotalTextField.getText() == null){
+            throw new CampoVazioException("Calcule o valor total antes de prosseguir!");
+        }
+
+        Double creditosCliente = Double.parseDouble(creditosDoClienteTextField.getText());
+
+        for (Cliente cliente: listaClientes) {
+            if(cliente.getCpf().equals(clienteCpfTextField.getText())){
+                cliente.setCreditosNaLoja(0.0);
+            }
+        }
+
+        if(descontoSelecionadoAux != null){
+            String descontoGenericoNome = descontoSelecionadoAux.getClass().getSimpleName();
+
+            if(descontoGenericoNome.equals("Cashback")){
+                Double cashback = descontoSelecionadoAux.calculaDesconto(Double.parseDouble(valorTotalTextField.getText()));
+
+                JOptionPane.showMessageDialog(null,"O cliente ganhará R$"+ cashback + " em créditos com essa compra!" );
+
+                for (Cliente cliente: listaClientes) {
+                    if(cliente.getCpf().equals(clienteCpfTextField.getText())){
+                        cliente.setCreditosNaLoja(cashback);
+                    }
+                }
+            }
+        }
+        ClientePersistence clientePersistence = new ClientePersistence();
+        clientePersistence.save(listaClientes);
+
+        VendaPersistence vendaPersistence = new VendaPersistence();
+
+        Double valorTotal = Double.parseDouble(valorTotalTextField.getText());
+        Funcionario vendedor = funcionarioList.getSelectedValue();
+        Cliente cliente = clienteList.getSelectedValue();
+        String codigoDesconto = codigoCupomTextField.getText();
+        listaVendas.add(new Venda(valorTotal, vendedor, cliente, codigoDesconto, creditosCliente, 0));
+
+        vendaPersistence.save(listaVendas);
+        this.dispose();
+    }
 }
+

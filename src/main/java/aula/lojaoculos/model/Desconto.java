@@ -4,19 +4,17 @@ public abstract class Desconto {
 
     protected String codigo;
 
-    protected int numeroDeUsos;
 
-    public int getNumeroDeUsos() {
-        return numeroDeUsos;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setNumeroDeUsos(int numeroDeUsos) {
-        this.numeroDeUsos = numeroDeUsos;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Desconto(String codigo) {
         this.codigo = codigo;
-        numeroDeUsos = 0;
     }
     public abstract double calculaDesconto(double valor);
 }
