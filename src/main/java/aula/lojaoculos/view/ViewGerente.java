@@ -1,3 +1,7 @@
+/*Integrantes:
+   - Gabriel Campos (202176005)
+   - Álvaro Thees (202165003A)
+*/
 package aula.lojaoculos.view;
 import aula.lojaoculos.controller.cliente.JanelaCliente;
 import aula.lojaoculos.controller.desconto.JanelaDesconto;

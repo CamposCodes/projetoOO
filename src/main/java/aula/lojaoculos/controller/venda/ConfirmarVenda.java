@@ -1,3 +1,7 @@
+/*Integrantes:
+   - Gabriel Campos (202176005)
+   - Álvaro Thees (202165003A)
+*/
 package aula.lojaoculos.controller.venda;
 
 import aula.lojaoculos.exceptions.CampoVazioException;
